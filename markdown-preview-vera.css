@@ -1,0 +1,648 @@
+/* =========================================================
+   VS Code Markdown Preview — Dark Premium Theme
+   Designed for dark editor themes like Vera Themes
+   Global CSS for markdown.styles
+   ========================================================= */
+
+/* ---------- Theme Tokens ---------- */
+
+:root {
+  color-scheme: dark;
+
+  --bg-0: #090b10;
+  --bg-1: #0d1117;
+  --bg-2: #111827;
+  --bg-3: #161b22;
+  --bg-4: #1f2937;
+
+  --text-0: #f3f7ff;
+  --text-1: #d6deeb;
+  --text-2: #a8b3c7;
+  --text-3: #7d89a1;
+
+  --blue: #82aaff;
+  --cyan: #89ddff;
+  --green: #c3e88d;
+  --yellow: #ffcb6b;
+  --orange: #f78c6c;
+  --red: #ff6b81;
+  --purple: #c792ea;
+  --pink: #ff8bd1;
+
+  --border: rgba(130, 170, 255, 0.18);
+  --border-strong: rgba(137, 221, 255, 0.35);
+
+  --shadow: 0 18px 55px rgba(0, 0, 0, 0.38);
+  --radius: 14px;
+  --radius-sm: 8px;
+
+  --mono: "JetBrains Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
+  --sans: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ---------- Page Base ---------- */
+
+html,
+body {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(130, 170, 255, 0.09), transparent 28rem),
+    radial-gradient(circle at 90% 10%, rgba(199, 146, 234, 0.08), transparent 30rem),
+    linear-gradient(135deg, var(--bg-0), var(--bg-1) 42%, #0b1020);
+  color: var(--text-1);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.78;
+}
+
+/* VS Code Markdown Preview body */
+body {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 42px 46px 90px;
+}
+
+/* Soft paper/noise feeling without external image */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image:
+    linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+/* ---------- Selection ---------- */
+
+::selection {
+  background: rgba(130, 170, 255, 0.35);
+  color: #ffffff;
+}
+
+/* ---------- Typography ---------- */
+
+p {
+  margin: 0 0 1.1rem;
+  color: var(--text-1);
+}
+
+strong {
+  color: var(--yellow);
+  font-weight: 750;
+}
+
+em {
+  color: var(--green);
+  font-style: italic;
+}
+
+del {
+  color: var(--text-3);
+  text-decoration-color: var(--red);
+}
+
+small {
+  color: var(--text-3);
+}
+
+mark {
+  color: #10131a;
+  background: linear-gradient(90deg, var(--yellow), var(--orange));
+  padding: 0.12em 0.35em;
+  border-radius: 6px;
+}
+
+/* ---------- Headings ---------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--sans);
+  color: var(--text-0);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  margin: 2.2rem 0 1rem;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.7rem;
+  margin-top: 0;
+  padding-bottom: 1rem;
+  background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 4px;
+  margin-top: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
+  box-shadow: 0 0 30px rgba(130, 170, 255, 0.45);
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--blue);
+  padding-top: 1rem;
+  border-top: 1px solid rgba(130, 170, 255, 0.15);
+}
+
+h2::before {
+  content: "##";
+  color: rgba(130, 170, 255, 0.35);
+  font-family: var(--mono);
+  font-size: 0.78em;
+  margin-right: 0.55rem;
+}
+
+h3 {
+  font-size: 1.45rem;
+  color: var(--purple);
+}
+
+h3::before {
+  content: "###";
+  color: rgba(199, 146, 234, 0.35);
+  font-family: var(--mono);
+  font-size: 0.72em;
+  margin-right: 0.5rem;
+}
+
+h4 {
+  font-size: 1.15rem;
+  color: var(--yellow);
+}
+
+h5 {
+  font-size: 1rem;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+h6 {
+  font-size: 0.92rem;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Links ---------- */
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(137, 221, 255, 0.35);
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+a:hover {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+  background: rgba(130, 170, 255, 0.08);
+}
+
+/* ---------- Lists ---------- */
+
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin: 0.75rem 0 1.25rem;
+}
+
+li {
+  margin: 0.35rem 0;
+  color: var(--text-1);
+}
+
+li::marker {
+  color: var(--purple);
+  font-weight: 800;
+}
+
+ol li::marker {
+  color: var(--yellow);
+}
+
+/* Task lists */
+.task-list-item {
+  list-style: none;
+  margin-left: -1.3rem;
+}
+
+.task-list-item input[type="checkbox"] {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.55rem 0 0;
+  vertical-align: -0.12rem;
+  border-radius: 5px;
+  border: 1px solid var(--border-strong);
+  background: rgba(17, 24, 39, 0.95);
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.18);
+}
+
+.task-list-item input[type="checkbox"]:checked {
+  background:
+    linear-gradient(135deg, var(--green), var(--cyan));
+  border-color: transparent;
+}
+
+.task-list-item input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: #071014;
+  font-weight: 900;
+  font-size: 0.78rem;
+  position: relative;
+  left: 0.17rem;
+  top: -0.1rem;
+}
+
+/* ---------- Code ---------- */
+
+code {
+  font-family: var(--mono);
+  font-size: 0.92em;
+  color: var(--cyan);
+  background: rgba(137, 221, 255, 0.09);
+  border: 1px solid rgba(137, 221, 255, 0.16);
+  padding: 0.16em 0.42em;
+  border-radius: 7px;
+}
+
+pre {
+  position: relative;
+  overflow: auto;
+  margin: 1.25rem 0 1.7rem;
+  padding: 1.25rem 1.35rem;
+  background:
+    linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(9, 11, 16, 0.98));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+pre::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 16px;
+  width: 38px;
+  height: 10px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 5px 5px, var(--red) 0 4px, transparent 4.5px),
+    radial-gradient(circle at 19px 5px, var(--yellow) 0 4px, transparent 4.5px),
+    radial-gradient(circle at 33px 5px, var(--green) 0 4px, transparent 4.5px);
+  opacity: 0.85;
+}
+
+pre code {
+  display: block;
+  margin-top: 1.25rem;
+  padding: 0;
+  color: var(--text-1);
+  background: transparent;
+  border: 0;
+  font-size: 0.92rem;
+  line-height: 1.72;
+}
+
+/* Code syntax tokens from VS Code/Highlight.js where available */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.token.keyword {
+  color: var(--purple) !important;
+}
+
+.hljs-string,
+.token.string {
+  color: var(--green) !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.token.number,
+.token.boolean {
+  color: var(--orange) !important;
+}
+
+.hljs-comment,
+.token.comment {
+  color: var(--text-3) !important;
+  font-style: italic;
+}
+
+.hljs-title,
+.hljs-function,
+.token.function {
+  color: var(--blue) !important;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.token.attr-name {
+  color: var(--yellow) !important;
+}
+
+.hljs-variable,
+.token.variable {
+  color: var(--pink) !important;
+}
+
+/* ---------- Blockquotes ---------- */
+
+blockquote {
+  margin: 1.35rem 0;
+  padding: 1rem 1.2rem;
+  color: var(--text-1);
+  background:
+    linear-gradient(90deg, rgba(199, 146, 234, 0.14), rgba(130, 170, 255, 0.05));
+  border: 1px solid rgba(199, 146, 234, 0.2);
+  border-left: 5px solid var(--purple);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.22);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Tables ---------- */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.35rem 0 1.8rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(13, 17, 23, 0.72);
+  box-shadow: var(--shadow);
+}
+
+thead th {
+  color: var(--yellow);
+  background:
+    linear-gradient(180deg, rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.95));
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+th,
+td {
+  padding: 0.85rem 1rem;
+  border-right: 1px solid rgba(130, 170, 255, 0.12);
+  border-bottom: 1px solid rgba(130, 170, 255, 0.12);
+  vertical-align: top;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+th:last-child,
+td:last-child {
+  border-right: 0;
+}
+
+tbody tr {
+  transition: background 140ms ease;
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(130, 170, 255, 0.035);
+}
+
+tbody tr:hover {
+  background: rgba(137, 221, 255, 0.07);
+}
+
+/* ---------- Horizontal Rule ---------- */
+
+hr {
+  height: 1px;
+  border: 0;
+  margin: 2.3rem 0;
+  background:
+    linear-gradient(90deg, transparent, rgba(130, 170, 255, 0.45), rgba(199, 146, 234, 0.45), transparent);
+}
+
+/* ---------- Images ---------- */
+
+img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+p img:only-child {
+  display: block;
+  margin: 1.6rem auto;
+}
+
+/* ---------- Keyboard / Badges ---------- */
+
+kbd {
+  font-family: var(--mono);
+  font-size: 0.82em;
+  color: var(--text-0);
+  background: linear-gradient(180deg, #1f2937, #111827);
+  border: 1px solid rgba(130, 170, 255, 0.25);
+  border-bottom-color: rgba(0,0,0,0.55);
+  border-radius: 7px;
+  padding: 0.18em 0.48em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 2px 0 rgba(0,0,0,0.35);
+}
+
+/* ---------- Details / Summary ---------- */
+
+details {
+  margin: 1.2rem 0;
+  padding: 1rem 1.1rem;
+  background: rgba(17, 24, 39, 0.78);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+}
+
+summary {
+  cursor: pointer;
+  color: var(--cyan);
+  font-weight: 750;
+}
+
+summary:hover {
+  color: var(--blue);
+}
+
+/* ---------- Footnotes ---------- */
+
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 0.92rem;
+}
+
+/* ---------- Math / KaTeX ---------- */
+
+.katex {
+  color: var(--text-0);
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem;
+  background: rgba(137, 221, 255, 0.055);
+  border: 1px solid rgba(137, 221, 255, 0.14);
+  border-radius: var(--radius);
+}
+
+/* ---------- Mermaid / Diagrams / SVG ---------- */
+
+svg {
+  max-width: 100%;
+}
+
+.mermaid {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: rgba(13, 17, 23, 0.75);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Special GitHub/VS Code Markdown Classes ---------- */
+
+.markdown-body {
+  color: var(--text-1);
+  background: transparent;
+}
+
+.vscode-body,
+.vscode-light,
+.vscode-dark,
+.vscode-high-contrast {
+  background: transparent;
+}
+
+/* ---------- Custom Callout Feel Using Blockquote First Strong Word ---------- */
+/* Example:
+   > **Note:** Your message here
+   > **Warning:** Your message here
+*/
+
+blockquote strong:first-child {
+  color: var(--yellow);
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0d14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(130,170,255,.55), rgba(199,146,234,.55));
+  border: 3px solid #0a0d14;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(137,221,255,.75), rgba(199,146,234,.75));
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+  body {
+    padding: 26px 20px 70px;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 2.15rem;
+  }
+
+  h2 {
+    font-size: 1.65rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  pre {
+    padding: 1rem;
+  }
+
+  th,
+  td {
+    padding: 0.7rem 0.8rem;
+  }
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  td,
+  th {
+    color: #111827 !important;
+  }
+
+  pre,
+  table,
+  blockquote,
+  details {
+    box-shadow: none !important;
+  }
+
+  a {
+    color: #0645ad !important;
+  }
+}
