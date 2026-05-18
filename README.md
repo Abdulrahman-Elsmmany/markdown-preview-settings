@@ -78,6 +78,18 @@ https://raw.githubusercontent.com/Abdulrahman-Elsmmany/markdown-preview-settings
 
 VS Code loads Markdown preview CSS as a stylesheet. jsDelivr serves this file with the correct `text/css` content type. GitHub raw commonly serves raw files as `text/plain`, which can make webviews reject or ignore the stylesheet because of strict MIME checking.
 
+## Which URL Should You Use?
+
+For normal use, use the `@main` jsDelivr URL from the quick setup. This repo automatically purges the jsDelivr cache when `markdown-preview-vera.css` changes on `main`, so updates should reach users faster than waiting for the CDN cache to expire naturally.
+
+For a fully stable setup, pin the URL to a commit SHA. This prevents surprise visual changes, but you must update the SHA manually when you want a newer version:
+
+```text
+https://cdn.jsdelivr.net/gh/Abdulrahman-Elsmmany/markdown-preview-settings@COMMIT_SHA/markdown-preview-vera.css
+```
+
+For active theme development, use a local file path. Local files avoid CDN caching completely, so every CSS edit is available as soon as you reload the Markdown preview.
+
 ## Local File Setup
 
 If your editor blocks remote styles, your company network blocks CDNs, or you want a fully offline setup, use a local copy.
@@ -205,11 +217,11 @@ GitHub raw is great for viewing a file, but it is not the best stylesheet delive
 
 ### CDN Updates Look Delayed
 
-jsDelivr caches branch URLs. If you changed the CSS and the preview still shows the old version, try one of these:
+jsDelivr caches branch URLs. This repo has an automatic GitHub Actions purge for changes to `markdown-preview-vera.css`, but edge caches can still take a short time to refresh. If you changed the CSS and the preview still shows the old version, try one of these:
 
 - Reload the VS Code window.
 - Close and reopen the Markdown preview.
-- Wait for the CDN cache to refresh.
+- Wait briefly for CDN edges to refresh after the purge.
 - Use a commit-pinned URL for a specific version.
 - Use a local file while actively editing the CSS.
 
