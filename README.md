@@ -134,7 +134,7 @@ Workspace-relative example:
 
 ## Recommended Preview Settings
 
-This theme now lets VS Code control the main Markdown preview typography. Use these settings to tune the reading experience:
+This theme reads VS Code's Markdown preview typography variables, so the main preview text follows these settings:
 
 ```json
 {
@@ -237,7 +237,7 @@ Install a Mermaid Markdown preview extension, such as `bierner.markdown-mermaid`
 
 ### Markdown Preview Font Does Not Change
 
-Older versions of this theme set the page font directly in CSS, which overrode `markdown.preview.fontFamily`. The current theme inherits the preview font for normal document text and headings, so these settings can work:
+Older versions of this theme set fixed page typography in CSS, which overrode `markdown.preview.fontFamily` and `markdown.preview.fontSize`. The current theme uses VS Code's Markdown preview CSS variables for normal document text and headings, so these settings can work:
 
 ```json
 {
