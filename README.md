@@ -21,7 +21,7 @@ Open your VS Code `settings.json` and add this:
 ```json
 {
   "markdown.styles": [
-    "https://cdn.jsdelivr.net/gh/Abdulrahman-Elsmmany/markdown-preview-settings@main/markdown-preview-vera.css"
+    "https://raw.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css"
   ]
 }
 ```
@@ -45,7 +45,7 @@ Use global settings if you want every Markdown file on your machine to use the t
 ```json
 {
   "markdown.styles": [
-    "https://cdn.jsdelivr.net/gh/Abdulrahman-Elsmmany/markdown-preview-settings@main/markdown-preview-vera.css"
+    "https://raw.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css"
   ]
 }
 ```
@@ -57,17 +57,17 @@ Create or edit `.vscode/settings.json` in your project:
 ```json
 {
   "markdown.styles": [
-    "https://cdn.jsdelivr.net/gh/Abdulrahman-Elsmmany/markdown-preview-settings@main/markdown-preview-vera.css"
+    "https://raw.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css"
   ]
 }
 ```
 
-## Why jsDelivr Instead Of GitHub Raw?
+## Why raw.githack Instead Of GitHub Raw?
 
-Use the jsDelivr URL:
+Use the raw.githack branch URL:
 
 ```text
-https://cdn.jsdelivr.net/gh/Abdulrahman-Elsmmany/markdown-preview-settings@main/markdown-preview-vera.css
+https://raw.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css
 ```
 
 Do not use the GitHub raw URL as the recommended setup:
@@ -76,19 +76,21 @@ Do not use the GitHub raw URL as the recommended setup:
 https://raw.githubusercontent.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css
 ```
 
-VS Code loads Markdown preview CSS as a stylesheet. jsDelivr serves this file with the correct `text/css` content type. GitHub raw commonly serves raw files as `text/plain`, which can make webviews reject or ignore the stylesheet because of strict MIME checking.
+VS Code loads Markdown preview CSS as a stylesheet. raw.githack serves this file with the correct `text/css` content type and updates branch URLs within minutes. GitHub raw commonly serves raw files as `text/plain`, which can make webviews reject or ignore the stylesheet because of strict MIME checking.
 
 ## Which URL Should You Use?
 
-For normal use, use the `@main` jsDelivr URL from the quick setup. This repo automatically purges the jsDelivr cache when `markdown-preview-vera.css` changes on `main`, so updates should reach users faster than waiting for the CDN cache to expire naturally.
+For normal use, use the raw.githack `main` URL from the quick setup. It gives everyone one shared URL and avoids the long stale-cache behavior that can happen with branch-based jsDelivr URLs.
 
 For a fully stable setup, pin the URL to a commit SHA. This prevents surprise visual changes, but you must update the SHA manually when you want a newer version:
 
 ```text
-https://cdn.jsdelivr.net/gh/Abdulrahman-Elsmmany/markdown-preview-settings@COMMIT_SHA/markdown-preview-vera.css
+https://rawcdn.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/COMMIT_SHA/markdown-preview-vera.css
 ```
 
 For active theme development, use a local file path. Local files avoid CDN caching completely, so every CSS edit is available as soon as you reload the Markdown preview.
+
+jsDelivr still works as an alternative CDN, and this repo includes a cache-purge workflow for it, but raw.githack is the recommended branch URL because it is fresher for a single shared `main` stylesheet.
 
 ## Local File Setup
 
@@ -202,33 +204,33 @@ Some forks change the preview implementation or block custom styles for security
 - Reopen the Markdown preview after changing `settings.json`.
 - Confirm the setting name is exactly `markdown.styles`.
 - Confirm the value is an array of strings, not one string.
-- Use the jsDelivr URL or a local file path.
+- Use the raw.githack URL or a local file path.
 - Check whether your workspace is trusted if your VS Code fork restricts webview resources.
 
 ### The Raw GitHub URL Does Not Work
 
-Use jsDelivr instead. The recommended URL is:
+Use raw.githack instead. The recommended URL is:
 
 ```text
-https://cdn.jsdelivr.net/gh/Abdulrahman-Elsmmany/markdown-preview-settings@main/markdown-preview-vera.css
+https://raw.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css
 ```
 
 GitHub raw is great for viewing a file, but it is not the best stylesheet delivery URL for VS Code Markdown preview.
 
 ### CDN Updates Look Delayed
 
-jsDelivr caches branch URLs. This repo has an automatic GitHub Actions purge for changes to `markdown-preview-vera.css`, but edge caches can still take a short time to refresh. If you changed the CSS and the preview still shows the old version, try one of these:
+Branch URLs can be cached by any CDN. The recommended raw.githack URL usually reflects pushed changes within minutes. If you use jsDelivr, this repo has an automatic GitHub Actions purge for changes to `markdown-preview-vera.css`, but jsDelivr can still throttle purges or hold stale edge cache. If the preview still shows the old version, try one of these:
 
 - Reload the VS Code window.
 - Close and reopen the Markdown preview.
-- Wait briefly for CDN edges to refresh after the purge.
+- Switch to the recommended raw.githack URL.
 - Use a commit-pinned URL for a specific version.
 - Use a local file while actively editing the CSS.
 
 Commit-pinned URL format:
 
 ```text
-https://cdn.jsdelivr.net/gh/Abdulrahman-Elsmmany/markdown-preview-settings@COMMIT_SHA/markdown-preview-vera.css
+https://rawcdn.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/COMMIT_SHA/markdown-preview-vera.css
 ```
 
 ### Mermaid Does Not Render
@@ -249,9 +251,11 @@ Older versions of this theme set fixed page typography in CSS, which overrode `m
 
 If the font still does not change:
 
+- Confirm you are using the raw.githack URL from the quick setup, not an older cached jsDelivr branch URL.
 - Make sure the installed font name is spelled correctly.
 - Put font names with spaces in quotes inside the setting value.
 - Reload the VS Code window.
+- Close all existing Markdown preview tabs and reopen with `Markdown: Open Preview to the Side`.
 - Test in official VS Code to check whether your fork ignores preview typography settings.
 - Check whether another stylesheet in `markdown.styles` appears after this theme and overrides typography.
 
@@ -259,6 +263,7 @@ If the font still does not change:
 
 - [VS Code Markdown documentation](https://code.visualstudio.com/docs/languages/markdown)
 - [VS Code Markdown preview CSS extension docs](https://code.visualstudio.com/api/extension-guides/markdown-extension)
+- [raw.githack URL and cache behavior](https://raw.githack.com/)
 
 ## License
 
