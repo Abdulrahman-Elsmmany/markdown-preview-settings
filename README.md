@@ -184,7 +184,7 @@ graph TD
 ```
 ````
 
-The extension renders the diagram into SVG/HTML. This stylesheet then styles the diagram container, nodes, edges, labels, clusters, sequence diagrams, class diagrams, state diagrams, pie charts, and Gantt elements.
+The extension renders the diagram into SVG/HTML. This stylesheet styles the diagram frame and sizing only, while Mermaid keeps ownership of nodes, labels, edges, and diagram-specific contrast.
 
 ## Using It In VS Code Forks
 
