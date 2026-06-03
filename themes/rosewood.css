@@ -1,0 +1,377 @@
+/* =========================================================
+   Markdown Preview Theme: Rosewood
+   Plum library, rose ink, and warm mahogany reading room
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --wood: #160e13;
+  --wood-raised: #21131c;
+  --wood-soft: #2b1824;
+  --paper: #eadde0;
+  --paper-soft: #c6afb6;
+  --paper-faint: #8d737c;
+  --rose: #e08a9a;
+  --plum: #a77ad0;
+  --gold: #d7af6c;
+  --sage: #a6bd93;
+  --line: rgba(224, 138, 154, 0.2);
+  --mono: "Iosevka", "Cascadia Code", Consolas, monospace;
+  --serif: "Book Antiqua", "Palatino Linotype", Georgia, serif;
+}
+
+html,
+body {
+  color: var(--paper);
+  background:
+    radial-gradient(circle at 12% -6%, rgba(167, 122, 208, 0.16), transparent 30rem),
+    radial-gradient(circle at 90% 12%, rgba(224, 138, 154, 0.12), transparent 28rem),
+    repeating-linear-gradient(0deg, rgba(234, 221, 224, 0.018) 0 1px, transparent 1px 6px),
+    var(--wood);
+}
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 62px 66px 102px;
+}
+
+body::before,
+h1::after,
+h2::before,
+h3::before,
+pre::before,
+pre::after {
+  content: none;
+}
+
+::selection {
+  color: var(--wood);
+  background: var(--rose);
+}
+
+p {
+  color: var(--paper);
+}
+
+strong {
+  color: var(--gold);
+}
+
+em {
+  color: var(--rose);
+}
+
+del,
+small {
+  color: var(--paper-faint);
+}
+
+mark {
+  padding: 0.08em 0.3em;
+  color: var(--paper);
+  background: rgba(167, 122, 208, 0.38);
+  border-bottom: 1px solid var(--rose);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--serif);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+h1 {
+  margin: 0 0 2.6rem;
+  padding: 0 0 1rem;
+  color: #f6e7e9;
+  border-bottom: 2px solid var(--rose);
+  box-shadow: 0 6px 0 -5px var(--plum);
+  font-size: 3.15em;
+  letter-spacing: -0.062em;
+}
+
+h2 {
+  margin: 2.8rem 0 1rem;
+  color: var(--rose);
+  font-size: 1.95em;
+  letter-spacing: -0.035em;
+}
+
+h3 {
+  margin-top: 2rem;
+  color: var(--plum);
+  font-size: 1.38em;
+}
+
+h4 {
+  color: var(--gold);
+}
+
+h5,
+h6 {
+  color: var(--paper-faint);
+  font-family: var(--mono);
+  font-size: 0.82em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+a {
+  color: var(--rose);
+  text-decoration-color: rgba(224, 138, 154, 0.42);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: #ffc0ca;
+}
+
+ul,
+ol {
+  padding-left: 1.55rem;
+}
+
+li {
+  margin: 0.38rem 0;
+}
+
+li::marker {
+  color: var(--rose);
+}
+
+ol li::marker {
+  color: var(--gold);
+  font-family: var(--serif);
+}
+
+.task-list-item {
+  margin-left: -1.24rem;
+  list-style: none;
+}
+
+.task-list-item input[type="checkbox"] {
+  appearance: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin: 0 0.58rem 0 0;
+  vertical-align: -0.12rem;
+  border: 1px solid var(--rose);
+  border-radius: 3px;
+  background: rgba(224, 138, 154, 0.05);
+}
+
+.task-list-item input[type="checkbox"]:checked {
+  background:
+    linear-gradient(135deg, transparent 42%, var(--wood) 42% 56%, transparent 56%),
+    var(--rose);
+}
+
+code {
+  padding: 0.13em 0.36em;
+  color: #f0acb9;
+  background: rgba(224, 138, 154, 0.09);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+pre {
+  overflow: auto;
+  margin: 1.45rem 0 1.9rem;
+  padding: 1.2rem 1.35rem;
+  color: var(--paper);
+  background: rgba(11, 7, 10, 0.94);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--plum);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  color: var(--paper);
+  background: transparent;
+  border: 0;
+  line-height: 1.7;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.token.keyword {
+  color: var(--plum) !important;
+}
+
+.hljs-string,
+.token.string {
+  color: var(--sage) !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.token.number,
+.token.boolean {
+  color: var(--gold) !important;
+}
+
+.hljs-comment,
+.token.comment {
+  color: var(--paper-faint) !important;
+  font-style: italic;
+}
+
+.hljs-title,
+.hljs-function,
+.token.function {
+  color: var(--rose) !important;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.95rem 1.2rem;
+  color: var(--paper-soft);
+  background: linear-gradient(90deg, rgba(224, 138, 154, 0.13), rgba(167, 122, 208, 0.04));
+  border-left: 4px solid var(--rose);
+  font-family: var(--serif);
+  font-size: 1.04em;
+  font-style: italic;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  margin: 1.55rem 0 1.95rem;
+  border-collapse: collapse;
+  background: rgba(33, 19, 28, 0.8);
+  border: 1px solid var(--line);
+}
+
+th,
+td {
+  padding: 0.75rem 0.84rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+thead th {
+  color: var(--gold);
+  background: rgba(167, 122, 208, 0.13);
+  font-family: var(--serif);
+}
+
+tbody tr:hover {
+  background: rgba(224, 138, 154, 0.08);
+}
+
+hr {
+  width: 78%;
+  height: 1px;
+  margin: 2.6rem auto;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+}
+
+img {
+  max-width: 100%;
+  padding: 5px;
+  background: var(--wood-raised);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.3);
+}
+
+kbd {
+  padding: 0.14em 0.42em;
+  color: var(--gold);
+  background: var(--wood-soft);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.82em;
+}
+
+details,
+.katex-display {
+  margin: 1.35rem 0;
+  padding: 0.95rem 1.05rem;
+  background: rgba(33, 19, 28, 0.78);
+  border: 1px solid var(--line);
+}
+
+summary {
+  color: var(--rose);
+  cursor: pointer;
+  font-family: var(--serif);
+  font-weight: 700;
+}
+
+.footnotes {
+  margin-top: 3.1rem;
+  padding-top: 1rem;
+  color: var(--paper-faint);
+  border-top: 1px solid var(--line);
+  font-size: 0.9em;
+}
+
+.katex,
+.markdown-body {
+  color: var(--paper);
+}
+
+.markdown-body,
+.vscode-body,
+.vscode-light,
+.vscode-dark,
+.vscode-high-contrast {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--wood);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--plum);
+  border: 3px solid var(--wood);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 34px 22px 72px;
+  }
+
+  h1 {
+    font-size: 2.45em;
+  }
+}
+
+@media print {
+  html,
+  body {
+    color: #24151d !important;
+    background: #ffffff !important;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  pre,
+  img {
+    box-shadow: none !important;
+  }
+}

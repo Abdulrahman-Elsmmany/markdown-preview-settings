@@ -1,0 +1,118 @@
+{
+  "name": "markdown-preview-themes",
+  "displayName": "Markdown Preview Themes",
+  "description": "Switch the built-in VS Code Markdown preview between fifteen distinctive dark reading themes.",
+  "version": "0.3.0",
+  "publisher": "abdulrahman-elsmmany",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "keywords": [
+    "markdown",
+    "preview",
+    "theme",
+    "stylesheet",
+    "reading"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Abdulrahman-Elsmmany/markdown-preview-settings.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Abdulrahman-Elsmmany/markdown-preview-settings/issues"
+  },
+  "homepage": "https://github.com/Abdulrahman-Elsmmany/markdown-preview-settings#readme",
+  "main": "./extension.js",
+  "extensionKind": [
+    "ui"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "activationEvents": [
+    "onCommand:markdownPreviewThemes.selectTheme",
+    "onCommand:markdownPreviewThemes.resetTheme",
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdownPreviewThemes.selectTheme",
+        "title": "Select Theme",
+        "category": "Markdown Preview Themes"
+      },
+      {
+        "command": "markdownPreviewThemes.resetTheme",
+        "title": "Reset To Vera",
+        "category": "Markdown Preview Themes"
+      }
+    ],
+    "configuration": {
+      "title": "Markdown Preview Themes",
+      "properties": {
+        "markdownPreviewThemes.selectedTheme": {
+          "type": "string",
+          "default": "vera",
+          "enum": [
+            "vera",
+            "linen",
+            "terminal",
+            "blueprint",
+            "bauhaus",
+            "nocturne",
+            "forest",
+            "graphite",
+            "synthwave",
+            "ember",
+            "abyss",
+            "rosewood",
+            "cathedral",
+            "aurora",
+            "inkstone"
+          ],
+          "enumDescriptions": [
+            "Midnight neon with soft gradients and terminal-style code blocks.",
+            "Low-glare midnight editorial for long-form reading.",
+            "Monochrome CRT console with amber system accents.",
+            "Technical drawing board with precise drafting lines.",
+            "Dark modernist poster with primary-color geometry.",
+            "Black-tie editorial with brass, oxblood, and velvet depth.",
+            "Rain-soaked evergreen study with moss and firefly accents.",
+            "Restrained monochrome focus mode with crisp editorial rhythm.",
+            "Neon horizon, arcade glow, and retro-future grid energy.",
+            "Industrial charcoal workshop with copper and heat accents.",
+            "Deep-ocean calm with bioluminescent cyan and cobalt depth.",
+            "Plum library, rose ink, and warm mahogany reading room.",
+            "Midnight stone, stained glass, and jewel-toned geometry.",
+            "Polar night with soft northern-light ribbons and ice accents.",
+            "Sumi-black study with vermilion seals and quiet paper grain."
+          ],
+          "description": "The stylesheet applied to the built-in Markdown preview. Use the Select Theme command for a visual description of each option."
+        }
+      }
+    },
+    "markdown.previewStyles": [
+      "./markdown-preview-vera.css",
+      "./preview-tools.css"
+    ],
+    "markdown.previewScripts": [
+      "./preview-tools.js"
+    ]
+  },
+  "scripts": {
+    "test": "node ./test/theme-config.test.js && node ./test/preview-tools.test.js",
+    "check-package": "vsce ls",
+    "package": "node ./scripts/package-vsix.js"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.9.1"
+  }
+}

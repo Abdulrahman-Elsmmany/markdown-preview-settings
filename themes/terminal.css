@@ -1,0 +1,413 @@
+/* =========================================================
+   Markdown Preview Theme: Terminal
+   Monochrome CRT console with amber system accents
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --black: #020603;
+  --panel: #061108;
+  --panel-2: #08180d;
+  --green: #7dff9a;
+  --green-soft: #a8e7ad;
+  --green-dim: #4c9b5a;
+  --green-faint: rgba(125, 255, 154, 0.2);
+  --amber: #ffc85a;
+  --red: #ff6d6d;
+  --mono: "IBM Plex Mono", "Cascadia Mono", "Fira Code", Consolas, monospace;
+}
+
+html,
+body {
+  color: var(--green-soft);
+  background:
+    radial-gradient(ellipse at center, rgba(21, 92, 42, 0.16), transparent 68%),
+    var(--black);
+}
+
+body {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 42px 46px 90px;
+  font-family: var(--mono);
+  text-shadow: 0 0 8px rgba(125, 255, 154, 0.2);
+}
+
+body::before,
+h1::after,
+h2::before,
+h3::before,
+pre::before,
+pre::after {
+  content: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 4px);
+  opacity: 0.62;
+}
+
+::selection {
+  color: var(--black);
+  background: var(--green);
+}
+
+p {
+  color: var(--green-soft);
+}
+
+strong {
+  color: var(--amber);
+}
+
+em {
+  color: var(--green);
+}
+
+del,
+small {
+  color: var(--green-dim);
+}
+
+mark {
+  padding: 0.08em 0.32em;
+  color: var(--black);
+  background: var(--amber);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--green);
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.24;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0 0 2rem;
+  padding: 0.85rem 1rem;
+  color: var(--black);
+  background: var(--green);
+  border: 2px solid var(--green);
+  box-shadow: 0 0 22px rgba(125, 255, 154, 0.24);
+  font-size: 2.2em;
+  text-shadow: none;
+}
+
+h1::before {
+  content: "> ";
+}
+
+h2 {
+  margin: 2.6rem 0 1rem;
+  padding: 0.35rem 0;
+  border-top: 1px dashed var(--green-dim);
+  border-bottom: 1px dashed var(--green-dim);
+  font-size: 1.5em;
+}
+
+h2::before {
+  content: "[::] ";
+  color: var(--amber);
+}
+
+h3 {
+  margin-top: 2rem;
+  color: var(--amber);
+  font-size: 1.17em;
+}
+
+h3::before {
+  content: "$ ";
+  color: var(--green);
+}
+
+h4,
+h5,
+h6 {
+  color: var(--green-soft);
+  font-size: 0.95em;
+}
+
+a {
+  color: var(--amber);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--amber);
+}
+
+a:hover {
+  color: var(--black);
+  background: var(--amber);
+  text-shadow: none;
+}
+
+ul,
+ol {
+  padding-left: 1.6rem;
+}
+
+li {
+  margin: 0.36rem 0;
+}
+
+li::marker {
+  color: var(--green);
+}
+
+ol li::marker {
+  color: var(--amber);
+}
+
+.task-list-item {
+  margin-left: -1.3rem;
+  list-style: none;
+}
+
+.task-list-item input[type="checkbox"] {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.58rem 0 0;
+  vertical-align: -0.12rem;
+  border: 1px solid var(--green);
+  background: transparent;
+}
+
+.task-list-item input[type="checkbox"]:checked::after {
+  content: "x";
+  position: relative;
+  top: -0.26rem;
+  left: 0.16rem;
+  color: var(--amber);
+  font-size: 0.95em;
+  font-weight: 800;
+}
+
+code {
+  padding: 0.1em 0.34em;
+  color: var(--amber);
+  background: rgba(125, 255, 154, 0.08);
+  border: 1px solid var(--green-faint);
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+pre {
+  position: relative;
+  overflow: auto;
+  margin: 1.4rem 0 1.8rem;
+  padding: 1.2rem;
+  color: var(--green-soft);
+  background: rgba(2, 9, 4, 0.88);
+  border: 1px solid var(--green-dim);
+  box-shadow: inset 0 0 28px rgba(24, 110, 49, 0.16), 0 0 20px rgba(24, 110, 49, 0.1);
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  color: var(--green-soft);
+  background: transparent;
+  border: 0;
+  line-height: 1.65;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.token.keyword {
+  color: var(--amber) !important;
+}
+
+.hljs-string,
+.token.string {
+  color: var(--green) !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.token.number,
+.token.boolean {
+  color: #e8ff91 !important;
+}
+
+.hljs-comment,
+.token.comment {
+  color: var(--green-dim) !important;
+}
+
+.hljs-title,
+.hljs-function,
+.token.function {
+  color: #b8fff2 !important;
+}
+
+blockquote {
+  margin: 1.4rem 0;
+  padding: 0.85rem 1rem;
+  color: var(--green-soft);
+  background: rgba(125, 255, 154, 0.055);
+  border: 1px dashed var(--green-dim);
+}
+
+blockquote::before {
+  content: "SYSTEM MESSAGE";
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--amber);
+  font-size: 0.78em;
+  letter-spacing: 0.12em;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  margin: 1.4rem 0 1.8rem;
+  border-collapse: collapse;
+  background: rgba(3, 12, 6, 0.62);
+  border: 1px solid var(--green-dim);
+}
+
+th,
+td {
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(125, 255, 154, 0.2);
+  text-align: left;
+}
+
+thead th {
+  color: var(--black);
+  background: var(--green);
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+tbody tr:hover {
+  background: rgba(125, 255, 154, 0.085);
+}
+
+hr {
+  height: 1px;
+  margin: 2.2rem 0;
+  border: 0;
+  background: repeating-linear-gradient(90deg, var(--green-dim) 0 8px, transparent 8px 14px);
+}
+
+img {
+  max-width: 100%;
+  filter: saturate(0.65) contrast(1.08);
+  border: 1px solid var(--green-dim);
+  box-shadow: 0 0 20px rgba(125, 255, 154, 0.14);
+}
+
+kbd {
+  padding: 0.14em 0.38em;
+  color: var(--amber);
+  background: var(--black);
+  border: 1px solid var(--green-dim);
+  font-family: var(--mono);
+  font-size: 0.82em;
+}
+
+details {
+  margin: 1.3rem 0;
+  padding: 0.9rem 1rem;
+  background: rgba(125, 255, 154, 0.04);
+  border: 1px dashed var(--green-dim);
+}
+
+summary {
+  color: var(--amber);
+  cursor: pointer;
+}
+
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  color: var(--green-dim);
+  border-top: 1px dashed var(--green-dim);
+  font-size: 0.88em;
+}
+
+.katex {
+  color: var(--green);
+}
+
+.katex-display {
+  overflow-x: auto;
+  padding: 0.9rem;
+  background: rgba(125, 255, 154, 0.04);
+  border: 1px dashed var(--green-dim);
+}
+
+.markdown-body {
+  color: var(--green-soft);
+  background: transparent;
+}
+
+.vscode-body,
+.vscode-light,
+.vscode-dark,
+.vscode-high-contrast {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green-dim);
+  border: 3px solid var(--black);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 28px 20px 70px;
+  }
+
+  h1 {
+    font-size: 1.72em;
+  }
+
+  h2 {
+    font-size: 1.28em;
+  }
+}
+
+@media print {
+  html,
+  body {
+    color: #102916 !important;
+    background: #ffffff !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  body::before {
+    display: none;
+  }
+}

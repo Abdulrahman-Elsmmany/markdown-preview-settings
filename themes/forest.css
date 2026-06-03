@@ -1,0 +1,393 @@
+/* =========================================================
+   Markdown Preview Theme: Forest
+   Rain-soaked evergreen study with moss and firefly accents
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --soil: #08110f;
+  --soil-raised: #0e1a17;
+  --bark: #16221d;
+  --mist: #d5e5d6;
+  --mist-soft: #a9c1ad;
+  --mist-faint: #718777;
+  --moss: #8fbd75;
+  --fern: #58a888;
+  --firefly: #e3c96f;
+  --clay: #c98466;
+  --line: rgba(143, 189, 117, 0.2);
+  --mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  --serif: "Charter", "Palatino Linotype", Georgia, serif;
+}
+
+html,
+body {
+  color: var(--mist);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(88, 168, 136, 0.14), transparent 28rem),
+    radial-gradient(circle at 94% 10%, rgba(227, 201, 111, 0.08), transparent 24rem),
+    repeating-linear-gradient(115deg, rgba(213, 229, 214, 0.018) 0 1px, transparent 1px 9px),
+    var(--soil);
+}
+
+body {
+  max-width: 930px;
+  margin: 0 auto;
+  padding: 56px 62px 98px;
+}
+
+body::before,
+h1::after,
+h2::before,
+h3::before,
+pre::before,
+pre::after {
+  content: none;
+}
+
+::selection {
+  color: #07110d;
+  background: var(--moss);
+}
+
+p {
+  color: var(--mist);
+}
+
+strong {
+  color: var(--firefly);
+}
+
+em {
+  color: var(--fern);
+}
+
+del,
+small {
+  color: var(--mist-faint);
+}
+
+mark {
+  padding: 0.08em 0.3em;
+  color: #07110d;
+  background: var(--firefly);
+  border-radius: 2px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--mist);
+  font-family: var(--serif);
+  line-height: 1.14;
+}
+
+h1 {
+  margin: 0 0 2.4rem;
+  padding: 0.2rem 0 0.7rem 1.1rem;
+  border-left: 7px solid var(--moss);
+  border-bottom: 1px solid var(--line);
+  font-size: 3em;
+  letter-spacing: -0.052em;
+}
+
+h2 {
+  margin: 2.75rem 0 1rem;
+  padding-bottom: 0.42rem;
+  color: var(--moss);
+  border-bottom: 1px solid var(--line);
+  font-size: 1.9em;
+}
+
+h3 {
+  margin-top: 2rem;
+  color: var(--firefly);
+  font-size: 1.38em;
+}
+
+h3::before {
+  content: "\2736";
+  margin-right: 0.5rem;
+  color: var(--fern);
+  font-size: 0.7em;
+}
+
+h4 {
+  color: var(--fern);
+}
+
+h5,
+h6 {
+  color: var(--mist-soft);
+  font-family: var(--mono);
+  font-size: 0.82em;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+a {
+  color: #7fd4b1;
+  text-decoration-color: rgba(127, 212, 177, 0.36);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--firefly);
+}
+
+ul,
+ol {
+  padding-left: 1.55rem;
+}
+
+li {
+  margin: 0.38rem 0;
+}
+
+li::marker {
+  color: var(--fern);
+}
+
+ol li::marker {
+  color: var(--firefly);
+}
+
+.task-list-item {
+  margin-left: -1.24rem;
+  list-style: none;
+}
+
+.task-list-item input[type="checkbox"] {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.57rem 0 0;
+  vertical-align: -0.12rem;
+  border: 1px solid var(--fern);
+  border-radius: 50%;
+  background: rgba(88, 168, 136, 0.05);
+}
+
+.task-list-item input[type="checkbox"]:checked {
+  background: radial-gradient(circle, var(--moss) 0 42%, transparent 48%);
+}
+
+code {
+  padding: 0.13em 0.36em;
+  color: #9bd8b8;
+  background: rgba(88, 168, 136, 0.09);
+  border: 1px solid rgba(88, 168, 136, 0.19);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+pre {
+  overflow: auto;
+  margin: 1.45rem 0 1.85rem;
+  padding: 1.2rem 1.35rem;
+  color: var(--mist);
+  background: rgba(5, 13, 11, 0.92);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--fern);
+  border-radius: 4px;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.28);
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  color: var(--mist);
+  background: transparent;
+  border: 0;
+  line-height: 1.7;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.token.keyword {
+  color: var(--clay) !important;
+}
+
+.hljs-string,
+.token.string {
+  color: var(--moss) !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.token.number,
+.token.boolean {
+  color: var(--firefly) !important;
+}
+
+.hljs-comment,
+.token.comment {
+  color: var(--mist-faint) !important;
+  font-style: italic;
+}
+
+.hljs-title,
+.hljs-function,
+.token.function {
+  color: #78cdb0 !important;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.2rem;
+  color: var(--mist-soft);
+  background: rgba(88, 168, 136, 0.065);
+  border-left: 4px solid var(--moss);
+  border-radius: 0 7px 7px 0;
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  margin: 1.5rem 0 1.9rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  background: rgba(14, 26, 23, 0.74);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+th,
+td {
+  padding: 0.75rem 0.84rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+thead th {
+  color: var(--firefly);
+  background: rgba(88, 168, 136, 0.11);
+}
+
+tr:last-child td,
+th:last-child,
+td:last-child {
+  border-right: 0;
+}
+
+tbody tr:hover {
+  background: rgba(143, 189, 117, 0.075);
+}
+
+hr {
+  height: 1px;
+  margin: 2.5rem 0;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--fern), transparent);
+}
+
+img {
+  max-width: 100%;
+  padding: 5px;
+  background: var(--soil-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
+}
+
+kbd {
+  padding: 0.14em 0.42em;
+  color: var(--firefly);
+  background: var(--bark);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.82em;
+}
+
+details,
+.katex-display {
+  margin: 1.35rem 0;
+  padding: 0.95rem 1.05rem;
+  background: rgba(14, 26, 23, 0.75);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+summary {
+  color: var(--moss);
+  cursor: pointer;
+  font-weight: 750;
+}
+
+.footnotes {
+  margin-top: 3.1rem;
+  padding-top: 1rem;
+  color: var(--mist-faint);
+  border-top: 1px solid var(--line);
+  font-size: 0.9em;
+}
+
+.katex,
+.markdown-body {
+  color: var(--mist);
+}
+
+.markdown-body,
+.vscode-body,
+.vscode-light,
+.vscode-dark,
+.vscode-high-contrast {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--soil);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--fern);
+  border: 3px solid var(--soil);
+  border-radius: 99px;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 32px 22px 72px;
+  }
+
+  h1 {
+    font-size: 2.35em;
+  }
+}
+
+@media print {
+  html,
+  body {
+    color: #15251d !important;
+    background: #ffffff !important;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  pre,
+  img {
+    box-shadow: none !important;
+  }
+}

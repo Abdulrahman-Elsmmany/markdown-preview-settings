@@ -515,48 +515,6 @@ summary:hover {
   border-radius: var(--radius);
 }
 
-/* ---------- Mermaid / Diagrams / SVG ---------- */
-
-svg {
-  max-width: 100%;
-  height: auto;
-}
-
-.mermaid {
-  position: relative;
-  margin: 1.7rem 0 2rem;
-  padding: 1.35rem;
-  overflow: auto;
-  text-align: center;
-  background:
-    linear-gradient(135deg, rgba(137, 221, 255, 0.08), transparent 34%),
-    linear-gradient(315deg, rgba(199, 146, 234, 0.1), transparent 38%),
-    linear-gradient(180deg, rgba(17, 24, 39, 0.94), rgba(9, 11, 16, 0.96));
-  border: 1px solid rgba(137, 221, 255, 0.22);
-  border-radius: var(--radius);
-  box-shadow:
-    0 18px 55px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.mermaid::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 1px;
-  pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgba(137, 221, 255, 0.62), rgba(199, 146, 234, 0.5), transparent);
-}
-
-.mermaid svg {
-  display: inline-block;
-  min-width: min(100%, 620px);
-  max-width: none;
-  height: auto;
-  overflow: visible;
-  vertical-align: top;
-}
-
 /* ---------- Special GitHub/VS Code Markdown Classes ---------- */
 
 .markdown-body {
@@ -661,20 +619,8 @@ blockquote strong:first-child {
   pre,
   table,
   blockquote,
-  details,
-  .mermaid {
+  details {
     box-shadow: none !important;
-  }
-
-  .mermaid {
-    overflow: visible !important;
-    background: #ffffff !important;
-    border-color: #d1d5db !important;
-  }
-
-  .mermaid svg {
-    max-width: 100% !important;
-    min-width: 0 !important;
   }
 
   a {

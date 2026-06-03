@@ -1,0 +1,10 @@
+.github/**
+.vscode/**
+.gitignore
+dist/**
+node_modules/**
+scripts/**
+test/**
+markdown-preview-active.css
+showcase.html
+package-lock.json

@@ -1,0 +1,390 @@
+/* =========================================================
+   Markdown Preview Theme: Aurora
+   Polar night with soft northern-light ribbons and ice accents
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --polar: #071316;
+  --polar-raised: #0c1d21;
+  --polar-soft: #122b30;
+  --snow: #deefec;
+  --snow-soft: #b2ceca;
+  --snow-faint: #718f8c;
+  --mint: #77e0bb;
+  --ice: #78cfe3;
+  --violet: #ab91e8;
+  --sun: #e1c477;
+  --line: rgba(119, 224, 187, 0.2);
+  --mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  --sans: "Aptos", "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  color: var(--snow);
+  background:
+    radial-gradient(ellipse at 28% -12%, rgba(119, 224, 187, 0.18), transparent 28rem),
+    radial-gradient(ellipse at 72% -10%, rgba(171, 145, 232, 0.17), transparent 30rem),
+    radial-gradient(ellipse at 52% 8%, rgba(120, 207, 227, 0.1), transparent 34rem),
+    var(--polar);
+}
+
+body {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 58px 62px 100px;
+}
+
+body::before,
+h1::after,
+h2::before,
+h3::before,
+pre::before,
+pre::after {
+  content: none;
+}
+
+::selection {
+  color: var(--polar);
+  background: var(--mint);
+}
+
+p {
+  color: var(--snow-soft);
+}
+
+strong {
+  color: var(--sun);
+}
+
+em {
+  color: var(--mint);
+}
+
+del,
+small {
+  color: var(--snow-faint);
+}
+
+mark {
+  padding: 0.08em 0.3em;
+  color: var(--polar);
+  background: var(--mint);
+  border-radius: 8px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--sans);
+  font-weight: 720;
+  line-height: 1.1;
+}
+
+h1 {
+  margin: 0 0 2.65rem;
+  padding-bottom: 1rem;
+  color: transparent;
+  background: linear-gradient(90deg, var(--mint), var(--ice), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  border-bottom: 1px solid var(--line);
+  font-size: 3.05em;
+  letter-spacing: -0.065em;
+}
+
+h2 {
+  margin: 2.75rem 0 1rem;
+  padding: 0.42rem 0.72rem;
+  color: var(--mint);
+  background: linear-gradient(90deg, rgba(119, 224, 187, 0.12), transparent);
+  border-left: 5px solid var(--mint);
+  font-size: 1.78em;
+}
+
+h3 {
+  margin-top: 2rem;
+  color: var(--ice);
+  font-size: 1.3em;
+}
+
+h4 {
+  color: var(--violet);
+}
+
+h5,
+h6 {
+  color: var(--snow-faint);
+  font-family: var(--mono);
+  font-size: 0.82em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+a {
+  color: var(--ice);
+  text-decoration-color: rgba(120, 207, 227, 0.45);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--mint);
+}
+
+ul,
+ol {
+  padding-left: 1.55rem;
+}
+
+li {
+  margin: 0.38rem 0;
+  color: var(--snow-soft);
+}
+
+li::marker {
+  color: var(--mint);
+}
+
+ol li::marker {
+  color: var(--violet);
+  font-family: var(--mono);
+}
+
+.task-list-item {
+  margin-left: -1.24rem;
+  list-style: none;
+}
+
+.task-list-item input[type="checkbox"] {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.58rem 0 0;
+  vertical-align: -0.12rem;
+  border: 1px solid var(--mint);
+  border-radius: 50%;
+  background: rgba(119, 224, 187, 0.05);
+}
+
+.task-list-item input[type="checkbox"]:checked {
+  background: radial-gradient(circle, var(--mint) 0 43%, transparent 49%);
+}
+
+code {
+  padding: 0.13em 0.36em;
+  color: var(--ice);
+  background: rgba(120, 207, 227, 0.08);
+  border: 1px solid rgba(120, 207, 227, 0.18);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+pre {
+  overflow: auto;
+  margin: 1.45rem 0 1.9rem;
+  padding: 1.2rem 1.35rem;
+  color: var(--snow);
+  background: rgba(4, 13, 15, 0.94);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--violet);
+  border-radius: 6px;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  color: var(--snow);
+  background: transparent;
+  border: 0;
+  line-height: 1.7;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.token.keyword {
+  color: var(--violet) !important;
+}
+
+.hljs-string,
+.token.string {
+  color: var(--mint) !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.token.number,
+.token.boolean {
+  color: var(--sun) !important;
+}
+
+.hljs-comment,
+.token.comment {
+  color: var(--snow-faint) !important;
+  font-style: italic;
+}
+
+.hljs-title,
+.hljs-function,
+.token.function {
+  color: var(--ice) !important;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.95rem 1.2rem;
+  color: var(--snow-soft);
+  background: linear-gradient(90deg, rgba(119, 224, 187, 0.12), rgba(171, 145, 232, 0.05));
+  border-left: 4px solid var(--mint);
+  border-radius: 0 8px 8px 0;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  margin: 1.55rem 0 1.95rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  background: rgba(12, 29, 33, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+th,
+td {
+  padding: 0.75rem 0.84rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+thead th {
+  color: var(--sun);
+  background: rgba(119, 224, 187, 0.1);
+}
+
+tr:last-child td,
+th:last-child,
+td:last-child {
+  border-right: 0;
+}
+
+tbody tr:hover {
+  background: rgba(120, 207, 227, 0.075);
+}
+
+hr {
+  height: 2px;
+  margin: 2.5rem 0;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--mint), var(--ice), var(--violet), transparent);
+}
+
+img {
+  max-width: 100%;
+  padding: 5px;
+  background: var(--polar-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.3);
+}
+
+kbd {
+  padding: 0.14em 0.42em;
+  color: var(--sun);
+  background: var(--polar-soft);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.82em;
+}
+
+details,
+.katex-display {
+  margin: 1.35rem 0;
+  padding: 0.95rem 1.05rem;
+  background: rgba(12, 29, 33, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+summary {
+  color: var(--mint);
+  cursor: pointer;
+  font-weight: 750;
+}
+
+.footnotes {
+  margin-top: 3.1rem;
+  padding-top: 1rem;
+  color: var(--snow-faint);
+  border-top: 1px solid var(--line);
+  font-size: 0.9em;
+}
+
+.katex,
+.markdown-body {
+  color: var(--snow-soft);
+}
+
+.markdown-body,
+.vscode-body,
+.vscode-light,
+.vscode-dark,
+.vscode-high-contrast {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--polar);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--mint), var(--violet));
+  border: 3px solid var(--polar);
+  border-radius: 99px;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 32px 22px 72px;
+  }
+
+  h1 {
+    font-size: 2.35em;
+  }
+}
+
+@media print {
+  html,
+  body {
+    color: #10282b !important;
+    background: #ffffff !important;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  pre,
+  img {
+    box-shadow: none !important;
+  }
+}

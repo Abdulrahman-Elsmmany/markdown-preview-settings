@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Preview Theme Showcase</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="./markdown-preview-vera.css">
+    <link rel="stylesheet" href="./preview-tools.css">
+    <style>
+      .theme-picker {
+        position: fixed;
+        z-index: 9999;
+        bottom: 16px;
+        right: 16px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 12px;
+        color: #f7f7f2;
+        background: rgba(16, 18, 22, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 6px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+        font: 700 12px/1.2 "Segoe UI", sans-serif;
+        letter-spacing: 0.08em;
+        text-shadow: none;
+        text-transform: uppercase;
+      }
+
+      .theme-picker label {
+        color: #c9d1d9;
+      }
+
+      .theme-picker select {
+        padding: 5px 7px;
+        color: #f7f7f2;
+        background: #23272f;
+        border: 1px solid #5d6675;
+        border-radius: 4px;
+        font: 700 12px/1.2 "Segoe UI", sans-serif;
+        letter-spacing: 0.04em;
+      }
+
+      @media print {
+        .theme-picker {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="markdown-body vscode-body">
+    <aside class="theme-picker" aria-label="Theme showcase controls">
+      <label for="theme">Preview theme</label>
+      <select id="theme">
+        <option value="vera">Vera</option>
+        <option value="linen">Linen</option>
+        <option value="terminal">Terminal</option>
+        <option value="blueprint">Blueprint</option>
+        <option value="bauhaus">Bauhaus</option>
+        <option value="nocturne">Nocturne</option>
+        <option value="forest">Forest</option>
+        <option value="graphite">Graphite</option>
+        <option value="synthwave">Synthwave</option>
+        <option value="ember">Ember</option>
+        <option value="abyss">Abyss</option>
+        <option value="rosewood">Rosewood</option>
+        <option value="cathedral">Cathedral</option>
+        <option value="aurora">Aurora</option>
+        <option value="inkstone">Inkstone</option>
+      </select>
+    </aside>
+
+    <h1>Markdown Preview Field Notes</h1>
+    <p>
+      A visual fixture for comparing <strong>fifteen distinct dark themes</strong>. It includes
+      <em>long-form text</em>, <a href="#table">linked sections</a>, inline
+      <code>const theme = "active"</code>, <mark>highlighted notes</mark>, and
+      a keyboard shortcut such as <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>.
+    </p>
+
+    <h2>Reading Surface</h2>
+    <p>
+      Good preview styling should make a dense document easier to scan without turning every
+      element into decoration. The themes in this repository intentionally vary layout density,
+      typography treatment, borders, color systems, and code presentation.
+    </p>
+
+    <blockquote>
+      <p><strong>Note:</strong> The same Markdown structure should feel different without losing clarity.</p>
+    </blockquote>
+
+    <h3>Review Checklist</h3>
+    <ul>
+      <li>Check heading hierarchy and paragraph contrast.</li>
+      <li>Compare inline code against fenced code blocks.</li>
+      <li>Inspect lists, quotes, tables, and expandable details.</li>
+    </ul>
+
+    <ul>
+      <li class="task-list-item"><input type="checkbox" checked disabled> Theme tokens loaded</li>
+      <li class="task-list-item"><input type="checkbox" disabled> Preview reloaded after switching</li>
+    </ul>
+
+    <h3>Code Sample</h3>
+    <pre><code><span class="hljs-keyword">const</span> themes = [<span class="hljs-string">"vera"</span>, <span class="hljs-string">"linen"</span>, <span class="hljs-string">"terminal"</span>];
+
+<span class="hljs-function">function</span> <span class="hljs-title">activate</span>(theme) {
+  <span class="hljs-keyword">return</span> themes.includes(theme) ? theme : <span class="hljs-string">"vera"</span>;
+}</code></pre>
+
+    <h3>Plain Text Tree</h3>
+    <pre><code>refrences/landing-rebuild/
+  00-shared/
+    external-sites/
+      &lt;site-name&gt;/
+        images/
+        videos/
+        sources.txt
+  01-event-command-center/
+    pinterest/
+      images/
+      videos/
+    external-sites/
+      &lt;site-name&gt;/
+        images/
+        videos/
+        sources.txt
+  02-the-night-comes-alive/
+  03-directed-by-hubby/
+  04-supplier-constellation/
+  05-built-for-saudi-moments/</code></pre>
+
+    <h2 id="table">Theme Matrix</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Theme</th>
+          <th>Direction</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Vera</td>
+          <td>Midnight neon</td>
+          <td>General technical notes</td>
+        </tr>
+        <tr>
+          <td>Linen</td>
+          <td>Midnight editorial</td>
+          <td>Long-form writing</td>
+        </tr>
+        <tr>
+          <td>Terminal</td>
+          <td>CRT console</td>
+          <td>CLI-focused references</td>
+        </tr>
+        <tr>
+          <td>Blueprint</td>
+          <td>Technical drawing board</td>
+          <td>Architecture documents</td>
+        </tr>
+        <tr>
+          <td>Bauhaus</td>
+          <td>Dark modernist poster</td>
+          <td>Bold project briefs</td>
+        </tr>
+        <tr>
+          <td>Nocturne</td>
+          <td>Black-tie editorial</td>
+          <td>Refined notes and essays</td>
+        </tr>
+        <tr>
+          <td>Forest</td>
+          <td>Evergreen study</td>
+          <td>Calm daily reading</td>
+        </tr>
+        <tr>
+          <td>Graphite</td>
+          <td>Monochrome focus mode</td>
+          <td>Low-distraction review</td>
+        </tr>
+        <tr>
+          <td>Synthwave</td>
+          <td>Retro-future neon grid</td>
+          <td>High-energy documentation</td>
+        </tr>
+        <tr>
+          <td>Ember</td>
+          <td>Industrial workshop</td>
+          <td>Engineering runbooks</td>
+        </tr>
+        <tr>
+          <td>Abyss</td>
+          <td>Bioluminescent deep ocean</td>
+          <td>Calm technical reading</td>
+        </tr>
+        <tr>
+          <td>Rosewood</td>
+          <td>Plum library</td>
+          <td>Editorial writing</td>
+        </tr>
+        <tr>
+          <td>Cathedral</td>
+          <td>Stained-glass geometry</td>
+          <td>Structured documentation</td>
+        </tr>
+        <tr>
+          <td>Aurora</td>
+          <td>Polar night ribbons</td>
+          <td>Soft luminous reading</td>
+        </tr>
+        <tr>
+          <td>Inkstone</td>
+          <td>Sumi-black study</td>
+          <td>Quiet focused review</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <details open>
+      <summary>Expandable implementation note</summary>
+      <p>
+        The VS Code extension keeps the preview native and applies the selected bundled stylesheet
+        without CDN requests or manual <code>markdown.styles</code> edits.
+      </p>
+    </details>
+
+    <hr>
+
+    <h4>Math Surface</h4>
+    <div class="katex-display">E = mc<sup>2</sup> &nbsp; | &nbsp; f(x) = x<sup>2</sup> + 2x + 1</div>
+
+    <section class="footnotes">
+      <p>Fixture only: Mermaid output remains owned by the renderer extension.</p>
+    </section>
+
+    <script src="./preview-tools.js"></script>
+    <script>
+      const stylesheets = {
+        vera: "./markdown-preview-vera.css",
+        linen: "./themes/linen.css",
+        terminal: "./themes/terminal.css",
+        blueprint: "./themes/blueprint.css",
+        bauhaus: "./themes/bauhaus.css",
+        nocturne: "./themes/nocturne.css",
+        forest: "./themes/forest.css",
+        graphite: "./themes/graphite.css",
+        synthwave: "./themes/synthwave.css",
+        ember: "./themes/ember.css",
+        abyss: "./themes/abyss.css",
+        rosewood: "./themes/rosewood.css",
+        cathedral: "./themes/cathedral.css",
+        aurora: "./themes/aurora.css",
+        inkstone: "./themes/inkstone.css"
+      };
+
+      const selector = document.querySelector("#theme");
+      const stylesheet = document.querySelector("#theme-stylesheet");
+      const requestedTheme = new URLSearchParams(window.location.search).get("theme");
+      const initialTheme = Object.hasOwn(stylesheets, requestedTheme) ? requestedTheme : "vera";
+
+      function applyTheme(theme) {
+        selector.value = theme;
+        stylesheet.href = stylesheets[theme];
+        window.history.replaceState(null, "", `?theme=${theme}`);
+      }
+
+      selector.addEventListener("change", (event) => applyTheme(event.target.value));
+      applyTheme(initialTheme);
+    </script>
+  </body>
+</html>

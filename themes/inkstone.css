@@ -1,0 +1,374 @@
+/* =========================================================
+   Markdown Preview Theme: Inkstone
+   Sumi-black study with vermilion seals and quiet paper grain
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --ink: #0c0d0d;
+  --ink-raised: #151716;
+  --ink-soft: #1d211f;
+  --paper: #e0dfd7;
+  --paper-soft: #b5b5ad;
+  --paper-faint: #777b76;
+  --seal: #d85f52;
+  --jade: #88b6a3;
+  --sand: #c6aa76;
+  --line: rgba(224, 223, 215, 0.16);
+  --line-strong: rgba(224, 223, 215, 0.3);
+  --mono: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
+  --serif: "Yu Mincho", "Hiragino Mincho ProN", "Palatino Linotype", Georgia, serif;
+}
+
+html,
+body {
+  color: var(--paper);
+  background:
+    repeating-linear-gradient(96deg, rgba(224, 223, 215, 0.014) 0 1px, transparent 1px 7px),
+    radial-gradient(circle at 90% 8%, rgba(216, 95, 82, 0.09), transparent 24rem),
+    var(--ink);
+}
+
+body {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 64px 66px 104px;
+}
+
+body::before,
+h1::after,
+h2::before,
+h3::before,
+pre::before,
+pre::after {
+  content: none;
+}
+
+::selection {
+  color: var(--ink);
+  background: var(--jade);
+}
+
+p {
+  color: var(--paper-soft);
+}
+
+strong {
+  color: var(--sand);
+}
+
+em {
+  color: var(--jade);
+}
+
+del,
+small {
+  color: var(--paper-faint);
+}
+
+mark {
+  padding: 0.08em 0.28em;
+  color: var(--paper);
+  background: rgba(216, 95, 82, 0.35);
+  border-bottom: 1px solid var(--seal);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--serif);
+  line-height: 1.12;
+}
+
+h1 {
+  margin: 0 0 2.7rem;
+  padding: 0 0 1rem 1rem;
+  color: var(--paper);
+  border-left: 5px solid var(--seal);
+  border-bottom: 1px solid var(--line-strong);
+  font-size: 3.1em;
+  letter-spacing: -0.06em;
+}
+
+h2 {
+  margin: 2.8rem 0 1rem;
+  padding-bottom: 0.4rem;
+  color: var(--paper);
+  border-bottom: 1px solid var(--line);
+  font-size: 1.9em;
+}
+
+h2::before {
+  content: "\25A0";
+  margin-right: 0.55rem;
+  color: var(--seal);
+  font-size: 0.55em;
+  vertical-align: 0.16em;
+}
+
+h3 {
+  margin-top: 2rem;
+  color: var(--jade);
+  font-size: 1.35em;
+}
+
+h4 {
+  color: var(--sand);
+}
+
+h5,
+h6 {
+  color: var(--paper-faint);
+  font-family: var(--mono);
+  font-size: 0.82em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+a {
+  color: var(--jade);
+  text-decoration-color: rgba(136, 182, 163, 0.42);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--sand);
+}
+
+ul,
+ol {
+  padding-left: 1.55rem;
+}
+
+li {
+  margin: 0.38rem 0;
+  color: var(--paper-soft);
+}
+
+li::marker {
+  color: var(--seal);
+}
+
+ol li::marker {
+  color: var(--sand);
+}
+
+.task-list-item {
+  margin-left: -1.24rem;
+  list-style: none;
+}
+
+.task-list-item input[type="checkbox"] {
+  appearance: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin: 0 0.58rem 0 0;
+  vertical-align: -0.12rem;
+  border: 1px solid var(--paper-faint);
+  background: transparent;
+}
+
+.task-list-item input[type="checkbox"]:checked {
+  background: var(--seal);
+}
+
+code {
+  padding: 0.13em 0.36em;
+  color: var(--jade);
+  background: rgba(136, 182, 163, 0.07);
+  border: 1px solid rgba(136, 182, 163, 0.16);
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+pre {
+  overflow: auto;
+  margin: 1.45rem 0 1.9rem;
+  padding: 1.2rem 1.35rem;
+  color: var(--paper);
+  background: #080909;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--seal);
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  color: var(--paper);
+  background: transparent;
+  border: 0;
+  line-height: 1.72;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.token.keyword {
+  color: var(--seal) !important;
+}
+
+.hljs-string,
+.token.string {
+  color: var(--jade) !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.token.number,
+.token.boolean {
+  color: var(--sand) !important;
+}
+
+.hljs-comment,
+.token.comment {
+  color: var(--paper-faint) !important;
+  font-style: italic;
+}
+
+.hljs-title,
+.hljs-function,
+.token.function {
+  color: #9abdc6 !important;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.85rem 1.15rem;
+  color: var(--paper-soft);
+  background: rgba(224, 223, 215, 0.035);
+  border-left: 3px solid var(--seal);
+  font-family: var(--serif);
+  font-size: 1.04em;
+  font-style: italic;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  margin: 1.55rem 0 1.95rem;
+  border-collapse: collapse;
+  background: rgba(21, 23, 22, 0.8);
+  border-top: 2px solid var(--seal);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+th,
+td {
+  padding: 0.75rem 0.84rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+thead th {
+  color: var(--sand);
+  font-family: var(--serif);
+}
+
+tbody tr:hover {
+  background: rgba(136, 182, 163, 0.06);
+}
+
+hr {
+  width: 64%;
+  height: 1px;
+  margin: 2.6rem auto;
+  border: 0;
+  background: var(--line-strong);
+}
+
+img {
+  max-width: 100%;
+  padding: 5px;
+  background: var(--ink-raised);
+  border: 1px solid var(--line);
+}
+
+kbd {
+  padding: 0.14em 0.42em;
+  color: var(--sand);
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  font-family: var(--mono);
+  font-size: 0.82em;
+}
+
+details,
+.katex-display {
+  margin: 1.35rem 0;
+  padding: 0.95rem 1.05rem;
+  background: rgba(21, 23, 22, 0.8);
+  border: 1px solid var(--line);
+}
+
+summary {
+  color: var(--jade);
+  cursor: pointer;
+  font-family: var(--serif);
+  font-weight: 700;
+}
+
+.footnotes {
+  margin-top: 3.1rem;
+  padding-top: 1rem;
+  color: var(--paper-faint);
+  border-top: 1px solid var(--line);
+  font-size: 0.9em;
+}
+
+.katex,
+.markdown-body {
+  color: var(--paper-soft);
+}
+
+.markdown-body,
+.vscode-body,
+.vscode-light,
+.vscode-dark,
+.vscode-high-contrast {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--seal);
+  border: 3px solid var(--ink);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 34px 22px 72px;
+  }
+
+  h1 {
+    font-size: 2.4em;
+  }
+}
+
+@media print {
+  html,
+  body {
+    color: #151716 !important;
+    background: #ffffff !important;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+}

@@ -1,0 +1,374 @@
+/* =========================================================
+   Markdown Preview Theme: Graphite
+   Restrained monochrome focus mode with crisp editorial rhythm
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --carbon: #0e1012;
+  --carbon-raised: #15181b;
+  --carbon-soft: #1b1f23;
+  --white: #e8edf0;
+  --silver: #b4bdc3;
+  --gray: #7c878e;
+  --line: rgba(205, 218, 224, 0.16);
+  --line-strong: rgba(205, 218, 224, 0.34);
+  --ice: #a8d3dc;
+  --lime: #b7ca8e;
+  --mono: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
+  --sans: "Aptos", "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    var(--carbon);
+  background-size: 72px 100%;
+}
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 62px 64px 100px;
+}
+
+body::before,
+h1::after,
+h2::before,
+h3::before,
+pre::before,
+pre::after {
+  content: none;
+}
+
+::selection {
+  color: var(--carbon);
+  background: var(--ice);
+}
+
+p {
+  color: var(--silver);
+}
+
+strong {
+  color: var(--white);
+  font-weight: 800;
+}
+
+em {
+  color: var(--ice);
+}
+
+del,
+small {
+  color: var(--gray);
+}
+
+mark {
+  padding: 0.08em 0.28em;
+  color: var(--carbon);
+  background: var(--lime);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--white);
+  font-family: var(--sans);
+  font-weight: 720;
+  line-height: 1.14;
+}
+
+h1 {
+  margin: 0 0 2.5rem;
+  padding-bottom: 0.95rem;
+  border-bottom: 1px solid var(--line-strong);
+  font-size: 3em;
+  letter-spacing: -0.065em;
+}
+
+h2 {
+  margin: 2.8rem 0 1rem;
+  padding: 0.46rem 0 0.46rem 0.8rem;
+  color: var(--white);
+  border-left: 2px solid var(--ice);
+  font-size: 1.72em;
+  letter-spacing: -0.035em;
+}
+
+h3 {
+  margin-top: 2rem;
+  color: var(--ice);
+  font-size: 1.25em;
+  letter-spacing: -0.02em;
+}
+
+h4 {
+  color: var(--lime);
+}
+
+h5,
+h6 {
+  color: var(--gray);
+  font-family: var(--mono);
+  font-size: 0.82em;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+a {
+  color: var(--ice);
+  text-decoration-color: rgba(168, 211, 220, 0.42);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: #d4f5fb;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin: 0.38rem 0;
+  color: var(--silver);
+}
+
+li::marker {
+  color: var(--ice);
+}
+
+ol li::marker {
+  color: var(--lime);
+  font-family: var(--mono);
+}
+
+.task-list-item {
+  margin-left: -1.24rem;
+  list-style: none;
+}
+
+.task-list-item input[type="checkbox"] {
+  appearance: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin: 0 0.58rem 0 0;
+  vertical-align: -0.12rem;
+  border: 1px solid var(--line-strong);
+  background: var(--carbon-raised);
+}
+
+.task-list-item input[type="checkbox"]:checked {
+  background:
+    linear-gradient(135deg, transparent 42%, var(--carbon) 42% 56%, transparent 56%),
+    var(--ice);
+}
+
+code {
+  padding: 0.13em 0.36em;
+  color: var(--ice);
+  background: rgba(168, 211, 220, 0.07);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+pre {
+  overflow: auto;
+  margin: 1.45rem 0 1.85rem;
+  padding: 1.2rem 1.35rem;
+  color: var(--silver);
+  background: #0a0c0d;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  color: var(--silver);
+  background: transparent;
+  border: 0;
+  line-height: 1.72;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.token.keyword {
+  color: #d9b8c8 !important;
+}
+
+.hljs-string,
+.token.string {
+  color: var(--lime) !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.token.number,
+.token.boolean {
+  color: #d7c596 !important;
+}
+
+.hljs-comment,
+.token.comment {
+  color: var(--gray) !important;
+  font-style: italic;
+}
+
+.hljs-title,
+.hljs-function,
+.token.function {
+  color: var(--ice) !important;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.15rem;
+  color: var(--silver);
+  background: rgba(168, 211, 220, 0.045);
+  border-left: 2px solid var(--ice);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  margin: 1.5rem 0 1.9rem;
+  border-collapse: collapse;
+  background: rgba(21, 24, 27, 0.84);
+  border: 1px solid var(--line);
+}
+
+th,
+td {
+  padding: 0.74rem 0.82rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+thead th {
+  color: var(--white);
+  background: var(--carbon-soft);
+  font-family: var(--mono);
+  font-size: 0.84em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+tbody tr:hover {
+  background: rgba(168, 211, 220, 0.055);
+}
+
+hr {
+  height: 1px;
+  margin: 2.5rem 0;
+  border: 0;
+  background: var(--line-strong);
+}
+
+img {
+  max-width: 100%;
+  padding: 5px;
+  background: var(--carbon-raised);
+  border: 1px solid var(--line);
+}
+
+kbd {
+  padding: 0.14em 0.42em;
+  color: var(--white);
+  background: var(--carbon-soft);
+  border: 1px solid var(--line-strong);
+  border-bottom-width: 2px;
+  font-family: var(--mono);
+  font-size: 0.82em;
+}
+
+details,
+.katex-display {
+  margin: 1.35rem 0;
+  padding: 0.95rem 1.05rem;
+  background: var(--carbon-raised);
+  border: 1px solid var(--line);
+}
+
+summary {
+  color: var(--ice);
+  cursor: pointer;
+  font-weight: 750;
+}
+
+.footnotes {
+  margin-top: 3.1rem;
+  padding-top: 1rem;
+  color: var(--gray);
+  border-top: 1px solid var(--line);
+  font-size: 0.9em;
+}
+
+.katex,
+.markdown-body {
+  color: var(--silver);
+}
+
+.markdown-body,
+.vscode-body,
+.vscode-light,
+.vscode-dark,
+.vscode-high-contrast {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--carbon);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #465158;
+  border: 3px solid var(--carbon);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 34px 22px 72px;
+  }
+
+  h1 {
+    font-size: 2.4em;
+  }
+}
+
+@media print {
+  html,
+  body {
+    color: #16191b !important;
+    background: #ffffff !important;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  pre {
+    box-shadow: none !important;
+  }
+}

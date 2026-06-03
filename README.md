@@ -1,270 +1,171 @@
-# Markdown Preview Vera
+<img alt="Markdown Preview Themes - fifteen dark VS Code Markdown preview styles" src="./assets/thumbnail-dark.png" width="100%">
 
-A polished dark theme for the built-in Markdown preview in VS Code and compatible VS Code forks.
+# Markdown Preview Themes
 
-The default preview is useful, but visually plain. This stylesheet turns Markdown documents into a cleaner reading surface with stronger typography, dark-mode contrast, styled tables, code blocks, blockquotes, task lists, images, details blocks, math, print styles, and Mermaid diagram styling.
+> A VS Code extension that switches the built-in Markdown preview between fifteen dark reading themes, with live theme preview and one-click fenced-code copy.
 
-## What It Changes
+<p align="center">
+  <samp>
+    <a href="#demo">demo</a> |
+    <a href="#quickstart">quickstart</a> |
+    <a href="#themes">themes</a> |
+    <a href="#architecture">architecture</a>
+  </samp>
+</p>
 
-- Dark premium document surface for VS Code's built-in Markdown preview.
-- Gradient headings, readable text colors, styled links, lists, tables, blockquotes, and horizontal rules.
-- Terminal-style fenced code blocks with syntax-token color support where VS Code exposes tokens.
-- Styled images, keyboard tags, footnotes, details/summary blocks, and KaTeX math containers.
-- Mermaid diagram container and SVG styling when a Mermaid renderer extension is installed.
-- Print mode that removes heavy shadows and keeps exported PDFs/paper output readable.
-- Font-compatible base typography, so `markdown.preview.fontFamily`, `markdown.preview.fontSize`, and `markdown.preview.lineHeight` can still control the preview text.
+[![VS Code](https://img.shields.io/badge/VS%20Code-1.74+-007ACC?logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/)
+[![Themes](https://img.shields.io/badge/themes-15%20dark--only-111827.svg)](#themes)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## Quick Setup
+The extension keeps VS Code's native Markdown renderer, scroll synchronization, extensions, and Mermaid support. It adds local CSS themes, a live picker, and copy buttons for fenced code blocks without CDN requests, API keys, or manual `markdown.styles` edits.
 
-Open your VS Code `settings.json` and add this:
+---
 
-```json
-{
-  "markdown.styles": [
-    "https://raw.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css"
-  ]
-}
-```
+## Demo
 
-Then open any Markdown file and run one of VS Code's built-in preview commands:
-
-- `Markdown: Open Preview`
-- `Markdown: Open Preview to the Side`
-- `Markdown: Toggle Preview`
-
-The same setting usually works in VS Code forks when they keep the built-in Markdown preview and support `markdown.styles`.
-
-## Where To Put The Setting
-
-Use global settings if you want every Markdown file on your machine to use the theme.
-
-1. Open Command Palette.
-2. Run `Preferences: Open User Settings (JSON)`.
-3. Add the `markdown.styles` setting.
-
-```json
-{
-  "markdown.styles": [
-    "https://raw.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css"
-  ]
-}
-```
-
-Use workspace settings if you want only one project to use the theme.
-
-Create or edit `.vscode/settings.json` in your project:
-
-```json
-{
-  "markdown.styles": [
-    "https://raw.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css"
-  ]
-}
-```
-
-## Why raw.githack Instead Of GitHub Raw?
-
-Use the raw.githack branch URL:
+The main workflow is deliberately small: open any Markdown preview, run the theme selector, move through the list, and watch the active preview update before you commit the choice.
 
 ```text
-https://raw.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css
+Markdown file -> Open Preview -> Select Theme -> live preview -> Enter to save
 ```
 
-Do not use the GitHub raw URL as the recommended setup:
+The static comparison fixture is available in [showcase.html](https://github.com/Abdulrahman-Elsmmany/markdown-preview-settings/blob/main/showcase.html) for CSS review while developing themes.
 
-```text
-https://raw.githubusercontent.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css
-```
+## Quickstart
 
-VS Code loads Markdown preview CSS as a stylesheet. raw.githack serves this file with the correct `text/css` content type and updates branch URLs within minutes. GitHub raw commonly serves raw files as `text/plain`, which can make webviews reject or ignore the stylesheet because of strict MIME checking.
-
-## Which URL Should You Use?
-
-For normal use, use the raw.githack `main` URL from the quick setup. It gives everyone one shared URL and avoids the long stale-cache behavior that can happen with branch-based jsDelivr URLs.
-
-For a fully stable setup, pin the URL to a commit SHA. This prevents surprise visual changes, but you must update the SHA manually when you want a newer version:
-
-```text
-https://rawcdn.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/COMMIT_SHA/markdown-preview-vera.css
-```
-
-For active theme development, use a local file path. Local files avoid CDN caching completely, so every CSS edit is available as soon as you reload the Markdown preview.
-
-jsDelivr still works as an alternative CDN, and this repo includes a cache-purge workflow for it, but raw.githack is the recommended branch URL because it is fresher for a single shared `main` stylesheet.
-
-## Local File Setup
-
-If your editor blocks remote styles, your company network blocks CDNs, or you want a fully offline setup, use a local copy.
-
-Clone this repo:
+Install from a local VSIX:
 
 ```powershell
-git clone https://github.com/Abdulrahman-Elsmmany/markdown-preview-settings.git
+npm install
+npm run package
+code --install-extension .\dist\markdown-preview-themes-0.3.0.vsix
 ```
 
-Then point `markdown.styles` at the local CSS file.
+Reload VS Code, open a Markdown file, then run:
 
-Windows example:
-
-```json
-{
-  "markdown.styles": [
-    "D:/1Work/Github_Repos/personal/markdown-preview-settings/markdown-preview-vera.css"
-  ]
-}
+```text
+Markdown Preview Themes: Select Theme
 ```
 
-macOS/Linux example:
+Move through themes with the keyboard or pointer to preview them live. Press `Enter` to keep a theme, or `Escape` to restore the theme that was active before opening the picker.
 
-```json
-{
-  "markdown.styles": [
-    "/Users/you/Github/markdown-preview-settings/markdown-preview-vera.css"
-  ]
-}
+Run `Markdown Preview Themes: Reset To Vera` before uninstalling if you want the extension to remove its managed stylesheet from VS Code settings.
+
+## Themes
+
+| Theme | Direction | Best for |
+| --- | --- | --- |
+| `Vera` | Midnight neon with soft gradients and terminal-style code blocks | General technical notes |
+| `Linen` | Low-glare midnight editorial | Long-form writing |
+| `Terminal` | Monochrome CRT console with amber system accents | CLI-focused references |
+| `Blueprint` | Technical drawing board with precise drafting lines | Architecture documents |
+| `Bauhaus` | Dark modernist poster with primary-color geometry | Project briefs |
+| `Nocturne` | Black-tie editorial with brass, oxblood, and velvet depth | Refined notes and essays |
+| `Forest` | Rain-soaked evergreen study with moss and firefly accents | Calm daily reading |
+| `Graphite` | Restrained monochrome focus mode | Low-distraction review |
+| `Synthwave` | Neon horizon, arcade glow, and retro-future grid energy | High-energy documentation |
+| `Ember` | Industrial charcoal workshop with copper and heat accents | Engineering runbooks |
+| `Abyss` | Deep-ocean calm with bioluminescent cyan and cobalt depth | Calm technical reading |
+| `Rosewood` | Plum library, rose ink, and warm mahogany | Editorial writing |
+| `Cathedral` | Midnight stone, stained glass, and jewel-toned geometry | Structured documentation |
+| `Aurora` | Polar night with northern-light ribbons and ice accents | Soft luminous reading |
+| `Inkstone` | Sumi-black study with vermilion seals and quiet paper grain | Focused review |
+
+## Architecture
+
+<img alt="Markdown Preview Themes architecture - command picker, theme registry, settings writer, preview refresh, and copy controls" src="./assets/architecture-art-dark.png" width="100%">
+
+The generated artwork gives the overview; the flow below is the precise implementation path.
+
+```mermaid
+flowchart LR
+    A[Command Palette] --> B[QuickPick Theme Selector]
+    B --> C[Theme Registry]
+    C --> D[markdown.styles Writer]
+    D --> E[Markdown Preview Refresh]
+    E --> F[Bundled CSS Theme]
+    E --> G[preview-tools.js]
+    G --> H[Fenced Code Copy Buttons]
 ```
 
-Workspace-relative example:
+Key implementation points:
 
-```json
-{
-  "markdown.styles": [
-    "./markdown-preview-vera.css"
-  ]
-}
+- `extension.js` owns the VS Code commands, live preview picker, settings writes, and preview refresh.
+- `lib/theme-config.js` owns the theme registry and managed-stylesheet replacement logic.
+- `markdown-preview-vera.css` is the default stylesheet contributed directly by the extension.
+- `themes/*.css` are alternate dark-only stylesheets added to `markdown.styles` when selected.
+- `preview-tools.js` injects copy buttons into fenced code blocks and copies only the original code text.
+
+## Development
+
+Install dependencies:
+
+```powershell
+npm install
 ```
 
-## Recommended Preview Settings
+Run focused tests:
 
-This theme does not set the base Markdown preview font family, font size, or line height. VS Code's built-in preview CSS owns those values, so the main preview text follows these settings:
-
-```json
-{
-  "markdown.preview.fontFamily": "Inter, Segoe UI, system-ui, sans-serif",
-  "markdown.preview.fontSize": 18,
-  "markdown.preview.lineHeight": 1.6,
-  "markdown.preview.scrollPreviewWithEditor": true,
-  "markdown.preview.scrollEditorWithPreview": true
-}
+```powershell
+npm test
 ```
 
-Code blocks still use a monospace stack from the CSS so source snippets stay readable:
+Check packaged files:
 
-```css
---mono: "JetBrains Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
+```powershell
+npm run check-package
+```
+
+Package a VSIX:
+
+```powershell
+npm run package
+```
+
+Press `F5` in VS Code to start an Extension Development Host, then run `Markdown Preview Themes: Select Theme`.
+
+## Project Layout
+
+```text
+.
++-- extension.js
++-- lib/theme-config.js
++-- markdown-preview-vera.css
++-- preview-tools.css
++-- preview-tools.js
++-- themes/
++-- test/
++-- images/icon.png
++-- assets/
+|   +-- thumbnail-dark.png
+|   +-- architecture-art-dark.png
++-- showcase.html
 ```
 
 ## Mermaid Diagrams
 
-CSS can style Mermaid output, but CSS cannot render Mermaid syntax by itself. Install a renderer extension first:
+CSS can style Markdown output, but CSS cannot render Mermaid syntax by itself. Install a renderer extension first:
 
 ```powershell
 code --install-extension bierner.markdown-mermaid
 ```
 
-Recommended Mermaid settings:
+The theme pack intentionally leaves Mermaid nodes, labels, edges, sizing, and contrast under the renderer extension's defaults.
 
-```json
-{
-  "markdown-mermaid.darkModeTheme": "dark",
-  "markdown-mermaid.controls.show": "onHoverOrFocus",
-  "markdown-mermaid.mouseNavigation.enabled": "alt",
-  "markdown-mermaid.maxHeight": "80vh"
-}
-```
+## Limitations
 
-Then use normal Mermaid fenced code blocks:
+- The extension changes the built-in Markdown preview, not the VS Code editor theme.
+- Theme switching writes to the active `markdown.styles` settings scope, preserving unrelated user styles where possible.
+- Mermaid rendering still depends on a Markdown Mermaid renderer extension.
 
-````markdown
-```mermaid
-graph TD
-  A[Write Markdown] --> B[Open VS Code Preview]
-  B --> C[Mermaid extension renders SVG]
-  C --> D[Markdown Preview Vera styles it]
-```
-````
+## Status
 
-The extension renders the diagram into SVG/HTML. This stylesheet styles the diagram frame and sizing only, while Mermaid keeps ownership of nodes, labels, edges, and diagram-specific contrast.
+Local VSIX build is working at version `0.3.0` for personal installation.
 
-## Using It In VS Code Forks
+## Contact
 
-This theme should work in VS Code-compatible editors when all of these are true:
-
-- The editor includes VS Code's built-in Markdown preview.
-- The editor supports the `markdown.styles` setting.
-- The editor allows the preview webview to load local or remote CSS.
-
-Some forks change the preview implementation or block custom styles for security. If the same `settings.json` works in official VS Code but not in a fork, the fork is probably ignoring, replacing, or sandboxing `markdown.styles`.
-
-## Troubleshooting
-
-### The CSS Does Not Apply
-
-- Reload the editor window with `Developer: Reload Window`.
-- Reopen the Markdown preview after changing `settings.json`.
-- Confirm the setting name is exactly `markdown.styles`.
-- Confirm the value is an array of strings, not one string.
-- Use the raw.githack URL or a local file path.
-- Check whether your workspace is trusted if your VS Code fork restricts webview resources.
-
-### The Raw GitHub URL Does Not Work
-
-Use raw.githack instead. The recommended URL is:
-
-```text
-https://raw.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/main/markdown-preview-vera.css
-```
-
-GitHub raw is great for viewing a file, but it is not the best stylesheet delivery URL for VS Code Markdown preview.
-
-### CDN Updates Look Delayed
-
-Branch URLs can be cached by any CDN. The recommended raw.githack URL usually reflects pushed changes within minutes. If you use jsDelivr, this repo has an automatic GitHub Actions purge for changes to `markdown-preview-vera.css`, but jsDelivr can still throttle purges or hold stale edge cache. If the preview still shows the old version, try one of these:
-
-- Reload the VS Code window.
-- Close and reopen the Markdown preview.
-- Switch to the recommended raw.githack URL.
-- Use a commit-pinned URL for a specific version.
-- Use a local file while actively editing the CSS.
-
-Commit-pinned URL format:
-
-```text
-https://rawcdn.githack.com/Abdulrahman-Elsmmany/markdown-preview-settings/COMMIT_SHA/markdown-preview-vera.css
-```
-
-### Mermaid Does Not Render
-
-Install a Mermaid Markdown preview extension, such as `bierner.markdown-mermaid`. Without a renderer extension, VS Code will show the fenced code block as code, and this CSS will only style it as a normal code block.
-
-### Markdown Preview Font Does Not Change
-
-Older versions of this theme set fixed page typography in CSS, which overrode `markdown.preview.fontFamily` and `markdown.preview.fontSize`. The current theme leaves the base document font family, size, and line height to VS Code's built-in Markdown preview CSS, so these settings can work:
-
-```json
-{
-  "markdown.preview.fontFamily": "Inter, Segoe UI, system-ui, sans-serif",
-  "markdown.preview.fontSize": 18,
-  "markdown.preview.lineHeight": 1.6
-}
-```
-
-If the font still does not change:
-
-- Confirm you are using the raw.githack URL from the quick setup, not an older cached jsDelivr branch URL.
-- Make sure the installed font name is spelled correctly.
-- Put font names with spaces in quotes inside the setting value.
-- Reload the VS Code window.
-- Close all existing Markdown preview tabs and reopen with `Markdown: Open Preview to the Side`.
-- Test in official VS Code to check whether your fork ignores preview typography settings.
-- Check whether another stylesheet in `markdown.styles` appears after this theme and overrides typography.
-
-## References
-
-- [VS Code Markdown documentation](https://code.visualstudio.com/docs/languages/markdown)
-- [VS Code Markdown preview CSS extension docs](https://code.visualstudio.com/api/extension-guides/markdown-extension)
-- [raw.githack URL and cache behavior](https://raw.githack.com/)
+[Abdulrahman Elsmmany](https://github.com/Abdulrahman-Elsmmany) - open an issue in this repository for bugs or theme requests.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+[MIT License](LICENSE).

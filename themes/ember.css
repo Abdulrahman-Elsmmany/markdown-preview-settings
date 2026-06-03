@@ -1,0 +1,382 @@
+/* =========================================================
+   Markdown Preview Theme: Ember
+   Industrial charcoal workshop with copper and heat accents
+   ========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --coal: #101214;
+  --coal-raised: #181b1e;
+  --steel: #252a2e;
+  --ash: #e4e0d9;
+  --ash-soft: #b7b4ae;
+  --ash-faint: #7d7f7c;
+  --copper: #d9824f;
+  --ember: #ffb45f;
+  --oxide: #b95e51;
+  --cool: #88b8bd;
+  --line: rgba(217, 130, 79, 0.24);
+  --mono: "Cascadia Code", "IBM Plex Mono", Consolas, monospace;
+  --display: "Bahnschrift", "Arial Narrow", sans-serif;
+}
+
+html,
+body {
+  color: var(--ash);
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 180, 95, 0.025) 0 1px, transparent 1px 16px),
+    radial-gradient(circle at 8% 0%, rgba(217, 130, 79, 0.17), transparent 26rem),
+    var(--coal);
+}
+
+body {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 54px 58px 98px;
+}
+
+body::before,
+h1::after,
+h2::before,
+h3::before,
+pre::before,
+pre::after {
+  content: none;
+}
+
+::selection {
+  color: var(--coal);
+  background: var(--ember);
+}
+
+p {
+  color: var(--ash-soft);
+}
+
+strong {
+  color: var(--ember);
+}
+
+em {
+  color: var(--cool);
+}
+
+del,
+small {
+  color: var(--ash-faint);
+}
+
+mark {
+  padding: 0.08em 0.3em;
+  color: var(--coal);
+  background: var(--ember);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--display);
+  font-weight: 750;
+  line-height: 1.06;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0 0 2.5rem;
+  padding: 0.78rem 1rem;
+  color: var(--ash);
+  background: linear-gradient(90deg, rgba(217, 130, 79, 0.18), transparent 72%);
+  border-left: 10px solid var(--copper);
+  border-bottom: 1px solid var(--line);
+  font-size: 2.75em;
+}
+
+h2 {
+  margin: 2.7rem 0 1rem;
+  padding: 0.42rem 0.65rem;
+  color: var(--ember);
+  background: var(--coal-raised);
+  border-left: 6px solid var(--oxide);
+  font-size: 1.72em;
+}
+
+h3 {
+  margin-top: 2rem;
+  color: var(--cool);
+  font-size: 1.25em;
+}
+
+h3::before {
+  content: "//";
+  margin-right: 0.52rem;
+  color: var(--copper);
+  font-family: var(--mono);
+}
+
+h4 {
+  color: var(--copper);
+}
+
+h5,
+h6 {
+  color: var(--ash-faint);
+  font-size: 0.82em;
+  letter-spacing: 0.14em;
+}
+
+a {
+  color: var(--ember);
+  text-decoration-color: rgba(255, 180, 95, 0.42);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: #ffd098;
+}
+
+ul,
+ol {
+  padding-left: 1.55rem;
+}
+
+li {
+  margin: 0.38rem 0;
+  color: var(--ash-soft);
+}
+
+li::marker {
+  color: var(--copper);
+}
+
+ol li::marker {
+  color: var(--ember);
+  font-family: var(--mono);
+}
+
+.task-list-item {
+  margin-left: -1.24rem;
+  list-style: none;
+}
+
+.task-list-item input[type="checkbox"] {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.58rem 0 0;
+  vertical-align: -0.12rem;
+  border: 1px solid var(--copper);
+  background: var(--coal);
+}
+
+.task-list-item input[type="checkbox"]:checked {
+  background:
+    linear-gradient(135deg, transparent 42%, var(--coal) 42% 56%, transparent 56%),
+    var(--ember);
+}
+
+code {
+  padding: 0.13em 0.36em;
+  color: var(--ember);
+  background: rgba(217, 130, 79, 0.09);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+pre {
+  overflow: auto;
+  margin: 1.45rem 0 1.9rem;
+  padding: 1.2rem 1.35rem;
+  color: var(--ash);
+  background: #0b0d0e;
+  border: 1px solid var(--line);
+  border-left: 8px solid var(--copper);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.28);
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  color: var(--ash);
+  background: transparent;
+  border: 0;
+  line-height: 1.68;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.token.keyword {
+  color: var(--oxide) !important;
+}
+
+.hljs-string,
+.token.string {
+  color: #a8c889 !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.token.number,
+.token.boolean {
+  color: var(--ember) !important;
+}
+
+.hljs-comment,
+.token.comment {
+  color: var(--ash-faint) !important;
+  font-style: italic;
+}
+
+.hljs-title,
+.hljs-function,
+.token.function {
+  color: var(--cool) !important;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.95rem 1.15rem;
+  color: var(--ash-soft);
+  background: linear-gradient(90deg, rgba(217, 130, 79, 0.13), transparent);
+  border: 1px solid var(--line);
+  border-left: 7px solid var(--copper);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  margin: 1.55rem 0 1.95rem;
+  border-collapse: collapse;
+  background: rgba(24, 27, 30, 0.82);
+  border: 1px solid var(--line);
+}
+
+th,
+td {
+  padding: 0.75rem 0.84rem;
+  border: 1px solid rgba(217, 130, 79, 0.16);
+  text-align: left;
+}
+
+thead th {
+  color: var(--coal);
+  background: var(--copper);
+  font-family: var(--display);
+  font-size: 0.86em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+tbody tr:hover {
+  background: rgba(217, 130, 79, 0.09);
+}
+
+hr {
+  height: 5px;
+  margin: 2.5rem 0;
+  border: 0;
+  background: repeating-linear-gradient(135deg, var(--copper) 0 9px, var(--coal) 9px 18px);
+}
+
+img {
+  max-width: 100%;
+  border: 2px solid var(--copper);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.28);
+}
+
+kbd {
+  padding: 0.14em 0.42em;
+  color: var(--ember);
+  background: var(--steel);
+  border: 1px solid var(--copper);
+  border-bottom-width: 2px;
+  font-family: var(--mono);
+  font-size: 0.82em;
+}
+
+details,
+.katex-display {
+  margin: 1.35rem 0;
+  padding: 0.95rem 1.05rem;
+  background: var(--coal-raised);
+  border: 1px solid var(--line);
+}
+
+summary {
+  color: var(--ember);
+  cursor: pointer;
+  font-family: var(--display);
+  text-transform: uppercase;
+}
+
+.footnotes {
+  margin-top: 3.1rem;
+  padding-top: 1rem;
+  color: var(--ash-faint);
+  border-top: 1px solid var(--line);
+  font-size: 0.9em;
+}
+
+.katex,
+.markdown-body {
+  color: var(--ash-soft);
+}
+
+.markdown-body,
+.vscode-body,
+.vscode-light,
+.vscode-dark,
+.vscode-high-contrast {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--coal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--copper);
+  border: 3px solid var(--coal);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 30px 20px 70px;
+  }
+
+  h1 {
+    font-size: 2.15em;
+  }
+}
+
+@media print {
+  html,
+  body {
+    color: #1b1e20 !important;
+    background: #ffffff !important;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  pre,
+  img {
+    box-shadow: none !important;
+  }
+}
