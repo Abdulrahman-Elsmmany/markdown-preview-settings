@@ -17,7 +17,7 @@
 [![Themes](https://img.shields.io/badge/themes-15%20dark--only-111827.svg)](#themes)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-The extension keeps VS Code's native Markdown renderer, scroll synchronization, extensions, and Mermaid support. It adds local CSS themes, a live picker, and copy buttons for fenced code blocks without CDN requests, API keys, or manual `markdown.styles` edits.
+The extension keeps VS Code's native Markdown renderer, scroll synchronization, extensions, and Mermaid support. It adds local CSS themes, a live picker, centered or full-width preview layout, and copy buttons for fenced code blocks without CDN requests, API keys, or manual `markdown.styles` edits.
 
 ---
 
@@ -38,7 +38,7 @@ Install from a local VSIX:
 ```powershell
 npm install
 npm run package
-code --install-extension .\dist\markdown-preview-themes-0.3.0.vsix
+code --install-extension .\dist\markdown-preview-themes-0.3.1.vsix
 ```
 
 Reload VS Code, open a Markdown file, then run:
@@ -49,7 +49,21 @@ Markdown Preview Themes: Select Theme
 
 Move through themes with the keyboard or pointer to preview them live. Press `Enter` to keep a theme, or `Escape` to restore the theme that was active before opening the picker.
 
-Run `Markdown Preview Themes: Reset To Vera` before uninstalling if you want the extension to remove its managed stylesheet from VS Code settings.
+Use the `Markdown Preview Themes: Page Layout` setting to switch between the default centered reading column and a full-width preview:
+
+```json
+"markdownPreviewThemes.pageLayout": "fullWidth"
+```
+
+From the UI, press `Ctrl+Shift+P` and run:
+
+```text
+Markdown Preview Themes: Select Page Layout
+```
+
+`Ctrl+Shift+B` runs VS Code build tasks by default. To use that shortcut for layout switching, bind it manually in Keyboard Shortcuts to `markdownPreviewThemes.selectPageLayout`.
+
+Run `Markdown Preview Themes: Reset To Vera` and set `Markdown Preview Themes: Page Layout` back to `centered` before uninstalling if you want the extension to remove its managed styles from VS Code settings.
 
 ## Themes
 
@@ -90,10 +104,11 @@ flowchart LR
 
 Key implementation points:
 
-- `extension.js` owns the VS Code commands, live preview picker, settings writes, and preview refresh.
+- `extension.js` owns the VS Code commands, live preview picker, theme/layout settings writes, and preview refresh.
 - `lib/theme-config.js` owns the theme registry and managed-stylesheet replacement logic.
 - `markdown-preview-vera.css` is the default stylesheet contributed directly by the extension.
 - `themes/*.css` are alternate dark-only stylesheets added to `markdown.styles` when selected.
+- `layouts/full-width.css` is added to `markdown.styles` when the page layout setting is `fullWidth`.
 - `preview-tools.js` injects copy buttons into fenced code blocks and copies only the original code text.
 
 ## Development
@@ -155,12 +170,12 @@ The theme pack intentionally leaves Mermaid nodes, labels, edges, sizing, and co
 ## Limitations
 
 - The extension changes the built-in Markdown preview, not the VS Code editor theme.
-- Theme switching writes to the active `markdown.styles` settings scope, preserving unrelated user styles where possible.
+- Theme and layout switching write to the active `markdown.styles` settings scope, preserving unrelated user styles where possible.
 - Mermaid rendering still depends on a Markdown Mermaid renderer extension.
 
 ## Status
 
-Local VSIX build is working at version `0.3.0` for personal installation.
+Local VSIX build is working at version `0.3.1` for personal installation.
 
 ## Contact
 

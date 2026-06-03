@@ -1,0 +1,19 @@
+/* Full-width layout override for Markdown Preview Themes. */
+
+body {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.markdown-body {
+  max-width: none !important;
+}
+
+@media print {
+  body {
+    max-width: none !important;
+  }
+}

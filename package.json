@@ -2,7 +2,7 @@
   "name": "markdown-preview-themes",
   "displayName": "Markdown Preview Themes",
   "description": "Switch the built-in VS Code Markdown preview between fifteen distinctive dark reading themes.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "publisher": "abdulrahman-elsmmany",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -39,6 +39,7 @@
   },
   "activationEvents": [
     "onCommand:markdownPreviewThemes.selectTheme",
+    "onCommand:markdownPreviewThemes.selectPageLayout",
     "onCommand:markdownPreviewThemes.resetTheme",
     "onStartupFinished"
   ],
@@ -47,6 +48,11 @@
       {
         "command": "markdownPreviewThemes.selectTheme",
         "title": "Select Theme",
+        "category": "Markdown Preview Themes"
+      },
+      {
+        "command": "markdownPreviewThemes.selectPageLayout",
+        "title": "Select Page Layout",
         "category": "Markdown Preview Themes"
       },
       {
@@ -96,6 +102,19 @@
             "Sumi-black study with vermilion seals and quiet paper grain."
           ],
           "description": "The stylesheet applied to the built-in Markdown preview. Use the Select Theme command for a visual description of each option."
+        },
+        "markdownPreviewThemes.pageLayout": {
+          "type": "string",
+          "default": "centered",
+          "enum": [
+            "centered",
+            "fullWidth"
+          ],
+          "enumDescriptions": [
+            "Keep the current centered reading column used by each theme.",
+            "Use the full Markdown preview width while keeping the selected theme."
+          ],
+          "description": "Controls whether Markdown preview themes use their centered reading column or the full preview width."
         }
       }
     },
